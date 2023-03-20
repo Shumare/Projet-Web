@@ -1,11 +1,11 @@
 <?php
-
 namespace Website\Models;
 
-class CenterModel extends Model
+class RoleModel extends Model
 {
     protected $id;
-    protected $center_name;
+    protected $role;
+    
 
     public function __construct()
     {
@@ -14,14 +14,19 @@ class CenterModel extends Model
         $this->table=strtolower(str_replace('Model','',$class));
     }
 
-
-   
+    /**
+     * Get the value of id
+     */ 
     public function getId()
     {
         return $this->id;
     }
 
-   
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
     public function setId($id)
     {
         $this->id = $id;
@@ -29,16 +34,22 @@ class CenterModel extends Model
         return $this;
     }
 
-   
-    public function getCenter_name()
+    /**
+     * Get the value of role
+     */ 
+    public function getRole()
     {
-        return $this->center_name;
+        return $this->role;
     }
 
-    
-    public function setCenter_name($center_name)
+    /**
+     * Set the value of role
+     *
+     * @return  self
+     */ 
+    public function setRole($role)
     {
-        $this->center_name = $center_name;
+        $this->role = $role;
 
         return $this;
     }
