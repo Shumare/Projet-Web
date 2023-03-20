@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<?php
+require_once('../media/smarty-3.1.47/libs/Smarty.class.php');
+
+$smarty = new Smarty();
+
+// Définir les variables pour le template
+$page = 'home';
+$user_role = 'admin';
+
+// Assigner les variables au template
+$smarty->assign('page', $page);
+$smarty->assign('user_role', $user_role);
+
+// Afficher la navbar
+$smarty->display('../header.tpl');
+?>
     <div class="container">
         <?= $contenu ?>
     </div>
-</body>
-</html>l
+<?php
+    $smarty->display('../footer.tpl');
+?>
