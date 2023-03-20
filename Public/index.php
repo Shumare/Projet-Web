@@ -31,7 +31,7 @@ use Website\Models\PeopleModel;
   use Website\Autoloader;
   use Website\Main\Main;
   define('ROOT', dirname(__DIR__));
- 
+
   require_once ROOT.'/Autoloader.php';
   Autoloader::register();
 
