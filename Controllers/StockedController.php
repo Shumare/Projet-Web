@@ -1,29 +1,29 @@
 <?php
 namespace Website\Controllers;
 
-use Website\Models\AddressModel;
+use Website\Models\StockedModel;
 
-class AddressController extends Controller
+class StockedController extends Controller
 {
     public function index()
     {
         //on instacie le model coresspondant à la table people
-        $addressModel= new AddressModel;
+        $stockedModel= new StockedModel;
         // on va chercher toutes les annonces 
-        $address= $addressModel->findAll();
+        $stocked= $stockedModel->findAll();
         
         //on genere la vue 
-        $this->rendu('address/index', ['address' =>$address]);
+        $this->rendu('stocked/index', ['stocked' =>$stocked]);
     }
     //afficher people
     public function read(int $id )
     {
         // on instancie le model
-        $addressModel= new AddressModel;
+        $stockedModel= new StockedModel;
 
         //on va chercher un people par rapport a son id 
-        $address =$addressModel->find($id);
+        $stocked =$stockedModel->find($id);
         //on envoie à la vue 
-        $this->rendu('address/read', compact('address'));
+        $this->rendu('stocked/read', compact('stocked'));
     }
 }

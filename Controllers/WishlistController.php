@@ -1,29 +1,29 @@
 <?php
 namespace Website\Controllers;
 
-use Website\Models\AddressModel;
+use Website\Models\WishlistModel;
 
-class AddressController extends Controller
+class WishlistController extends Controller
 {
     public function index()
     {
         //on instacie le model coresspondant à la table people
-        $addressModel= new AddressModel;
+        $wishlistModel= new WishlistModel;
         // on va chercher toutes les annonces 
-        $address= $addressModel->findAll();
+        $wishlist= $wishlistModel->findAll();
         
         //on genere la vue 
-        $this->rendu('address/index', ['address' =>$address]);
+        $this->rendu('wishlist/index', ['wishlist' =>$wishlist]);
     }
     //afficher people
     public function read(int $id )
     {
         // on instancie le model
-        $addressModel= new AddressModel;
+        $wishlistModel= new WishlistModel;
 
         //on va chercher un people par rapport a son id 
-        $address =$addressModel->find($id);
+        $wishlist =$wishlistModel->find($id);
         //on envoie à la vue 
-        $this->rendu('address/read', compact('address'));
+        $this->rendu('wishlist/read', compact('wishlist'));
     }
 }
