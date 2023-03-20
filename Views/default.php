@@ -6,17 +6,18 @@ $smarty = new Smarty();
 // Définir les variables pour le template
 $page = 'home';
 $user_role = 'admin';
+$title = "titre";
 
 // Assigner les variables au template
 $smarty->assign('page', $page);
+$smarty->assign('title', $title);
 $smarty->assign('user_role', $user_role);
-
 // Afficher la navbar
-$smarty->display('../header.tpl');
+$smarty->display('../Views/header.tpl');
 ?>
     <div class="container">
         <?= $contenu ?>
     </div>
 <?php
-    $smarty->display('../footer.tpl');
+    $smarty->display('../Views/footer.tpl');
 ?>
