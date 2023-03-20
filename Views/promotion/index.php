@@ -2,6 +2,6 @@
 
     <pre>
     <?php foreach($promotion as $promotion): ?>
-        <h2><a href="/role/read/<?=$promotion->id?>"><?=$promotion->promo_name?></a></h2>
+        <h2><a href="/promotion/read/<?=$promotion->id?>"><?=$promotion->promo_name?></a></h2>
     <?php endforeach; ?>
     </pre>
