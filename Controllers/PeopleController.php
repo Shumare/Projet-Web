@@ -2,7 +2,7 @@
 namespace Website\Controllers;
 
 use Website\Models\PeopleModel;
-
+use Website\Models\CenterModel;
 class PeopleController extends Controller
 {
 
@@ -14,7 +14,7 @@ class PeopleController extends Controller
         $people= $peopleModel->findAll();
         
         //on genere la vue 
-        $this->rendu('people/index', ['people' =>$people]);
+        $this->rendu(array('people/index'), ['people' =>$people]);
     }
     //afficher people
     public function read(int $id )
@@ -24,7 +24,12 @@ class PeopleController extends Controller
 
         //on va chercher un people par rapport a son id 
         $people =$peopleModel->find($id);
+
+        $centerModel= new centerModel;
+        
+        //on va chercher un people par rapport a son id 
+        $center =$centerModel->find($people->id_center);
         //on envoie à la vue 
-        $this->rendu('people/read', compact('people'));
+        $this->rendu(array('people/read','center/read'), array_merge(compact('center'),compact('people')));
     }
 }
