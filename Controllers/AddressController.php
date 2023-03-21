@@ -13,7 +13,7 @@ class AddressController extends Controller
         $address= $addressModel->findAll();
         
         //on genere la vue 
-        $this->rendu('address/index', ['address' =>$address]);
+        $this->rendu(array('address/index'), ['address' =>$address]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class AddressController extends Controller
         //on va chercher un people par rapport a son id 
         $address =$addressModel->find($id);
         //on envoie à la vue 
-        $this->rendu('address/read', compact('address'));
+        $this->rendu(array('address/read'), compact('address'));
     }
 }

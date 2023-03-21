@@ -13,7 +13,7 @@ class InternshipController extends Controller
         $internship= $internshipModel->findAll();
         
         //on genere la vue 
-        $this->rendu('internship/index', ['internship' =>$internship]);
+        $this->rendu(array('internship/index'), ['internship' =>$internship]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class InternshipController extends Controller
         //on va chercher un people par rapport a son id 
         $internship =$internshipModel->find($id);
         //on envoie à la vue 
-        $this->rendu('internship/read', compact('internship'));
+        $this->rendu(array('internship/read'), compact('internship'));
     }
 }

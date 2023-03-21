@@ -13,7 +13,7 @@ class SkillController extends Controller
         $skill= $skillModel->findAll();
         
         //on genere la vue 
-        $this->rendu('skill/index', ['skill' =>$skill]);
+        $this->rendu(array('skill/index'), ['skill' =>$skill]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class SkillController extends Controller
         //on va chercher un people par rapport a son id 
         $skill =$skillModel->find($id);
         //on envoie à la vue 
-        $this->rendu('skill/read', compact('skill'));
+        $this->rendu(array('skill/read'), compact('skill'));
     }
 }

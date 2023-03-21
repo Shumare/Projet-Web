@@ -13,7 +13,7 @@ class AccountController extends Controller
         $account= $accountModel->findAll();
         
         //on genere la vue 
-        $this->rendu('account/index', ['account' =>$account]);
+        $this->rendu(array('account/index'), ['account' =>$account]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class AccountController extends Controller
         //on va chercher un people par rapport a son id 
         $account =$accountModel->find($id);
         //on envoie à la vue 
-        $this->rendu('account/read', compact('account'));
+        $this->rendu(array('account/read'), compact('account'));
     }
 }

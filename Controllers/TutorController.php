@@ -13,7 +13,7 @@ class TutorController extends Controller
         $tutor= $tutorModel->findAll();
         
         //on genere la vue 
-        $this->rendu('tutor/index', ['tutor' =>$tutor]);
+        $this->rendu(array('tutor/index'), ['tutor' =>$tutor]);
     }
 
      //afficher people
@@ -25,6 +25,6 @@ class TutorController extends Controller
          //on va chercher un people par rapport a son id 
          $tutor =$tutorModel->find($id);
          //on envoie à la vue 
-         $this->rendu('tutor/read', compact('tutor'));
+         $this->rendu(array('tutor/read'), compact('tutor'));
      }
 }

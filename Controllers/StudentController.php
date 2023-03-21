@@ -13,7 +13,7 @@ class StudentController extends Controller
         $student= $studentModel->findAll();
         
         //on genere la vue 
-        $this->rendu('student/index', ['student' =>$student]);
+        $this->rendu(array('student/index'), ['student' =>$student]);
     }
 
      //afficher people
@@ -25,6 +25,6 @@ class StudentController extends Controller
          //on va chercher un people par rapport a son id 
          $student =$studentModel->find($id);
          //on envoie à la vue 
-         $this->rendu('student/read', compact('student'));
+         $this->rendu(array('student/read'), compact('student'));
      }
 }

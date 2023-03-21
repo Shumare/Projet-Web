@@ -13,7 +13,7 @@ class GiveController extends Controller
         $give= $giveModel->findAll();
         
         //on genere la vue 
-        $this->rendu('give/index', ['give' =>$give]);
+        $this->rendu(array('give/index'), ['give' =>$give]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class GiveController extends Controller
         //on va chercher un people par rapport a son id 
         $give =$giveModel->find($id);
         //on envoie à la vue 
-        $this->rendu('give/read', compact('give'));
+        $this->rendu(array('give/read'), compact('give'));
     }
 }
