@@ -8,22 +8,22 @@ class NeedController extends Controller
     public function index()
     {
         //on instacie le model coresspondant à la table people
-        $needModel= new NeedModel;
+        $needsModel= new NeedModel;
         // on va chercher toutes les annonces 
-        $need= $needModel->findAll();
+        $needs= $needsModel->findAll();
         
         //on genere la vue 
-        $this->rendu('need/index', ['need' =>$need]);
+        $this->rendu('needs/index', ['needs' =>$needs]);
     }
     //afficher people
     public function read(int $id )
     {
         // on instancie le model
-        $needModel= new NeedModel;
+        $needsModel= new NeedModel;
 
         //on va chercher un people par rapport a son id 
-        $need =$needModel->find($id);
+        $needs =$needsModel->find($id);
         //on envoie à la vue 
-        $this->rendu('need/read', compact('need'));
+        $this->rendu('needs/read', compact('needs'));
     }
 }

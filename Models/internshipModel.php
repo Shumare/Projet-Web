@@ -3,10 +3,10 @@ namespace Website\Models;
 
 class InternshipModel extends Model
 {
-    protected $id_internship;
+    protected $id;
     protected $inter_activity;
     protected $inter_salary;
-    protected $inter_description;
+    protected $intern_description;
     protected $inter_number_place;
     protected $id_company;
     protected $id_date;
@@ -22,21 +22,21 @@ class InternshipModel extends Model
 
 
     /**
-     * Get the value of id_internship
+     * Get the value of id
      */ 
-    public function getId_internship()
+    public function getId()
     {
-        return $this->id_internship;
+        return $this->id;
     }
 
     /**
-     * Set the value of id_internship
+     * Set the value of id
      *
      * @return  self
      */ 
-    public function setId_internship($id_internship)
+    public function setId($id)
     {
-        $this->id_internship = $id_internship;
+        $this->id = $id;
 
         return $this;
     }
@@ -84,9 +84,9 @@ class InternshipModel extends Model
     /**
      * Get the value of inter_description
      */ 
-    public function getInter_description()
+    public function getIntern_description()
     {
-        return $this->inter_description;
+        return $this->intern_description;
     }
 
     /**
@@ -94,9 +94,9 @@ class InternshipModel extends Model
      *
      * @return  self
      */ 
-    public function setInter_description($inter_description)
+    public function setIntern_description($intern_description)
     {
-        $this->inter_description = $inter_description;
+        $this->intern_description = $intern_description;
 
         return $this;
     }

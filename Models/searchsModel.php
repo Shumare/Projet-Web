@@ -3,7 +3,7 @@ namespace Website\Models;
 
 class SearchsModel extends Model
 {
-    protected $people_id;
+    protected $id_people;
     protected $id_company;
     
 
@@ -17,21 +17,21 @@ class SearchsModel extends Model
 
 
     /**
-     * Get the value of people_id
+     * Get the value of id_people
      */ 
-    public function getPeople_id()
+    public function getid_people()
     {
-        return $this->people_id;
+        return $this->id_people;
     }
 
     /**
-     * Set the value of people_id
+     * Set the value of id_people
      *
      * @return  self
      */ 
-    public function setPeople_id($people_id)
+    public function setid_people($id_people)
     {
-        $this->people_id = $people_id;
+        $this->id_people = $id_people;
 
         return $this;
     }
