@@ -46,14 +46,14 @@
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
                     <use xlink:href="#instagram"></use>
                 </svg></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+        <li class="ms-3"><a class="text-muted"  href="#"><svg class="bi" width="24" height="24">
                     <use xlink:href="#facebook"></use>
                 </svg></a></li>
     </ul>
 </footer>
 </footer>
 
-<script src="../../media/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../media/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
