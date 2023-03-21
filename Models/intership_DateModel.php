@@ -1,7 +1,7 @@
 <?php
 namespace Website\Models;
 
-class InternshipDateModel extends Model
+class Intership_DateModel extends Model
 {
     protected $id;
     protected $dates;

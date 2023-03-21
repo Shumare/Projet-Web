@@ -1,14 +1,14 @@
 <?php
 namespace Website\Controllers;
 
-use Website\Models\InternshipDateModel;
+use Website\Models\Intership_DateModel;
 
-class InternshipDateController extends Controller
+class Internship_DateController extends Controller
 {
     public function index()
     {
         //on instacie le model coresspondant à la table people
-        $internshipDateModel= new InternshipDateModel;
+        $internshipDateModel= new Intership_DateModel;
         // on va chercher toutes les annonces 
         $internshipDate= $internshipDateModel->findAll();
         
@@ -19,7 +19,7 @@ class InternshipDateController extends Controller
     public function read(int $id )
     {
         // on instancie le model
-        $internshipDateModel= new InternshipDateModel;
+        $internshipDateModel= new Intership_DateModel;
 
         //on va chercher un people par rapport a son id 
         $internshipDate =$internshipDateModel->find($id);
