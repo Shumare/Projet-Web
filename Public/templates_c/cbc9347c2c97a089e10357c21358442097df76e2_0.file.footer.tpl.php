@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.47, created on 2023-03-20 16:46:57
-  from 'C:\Users\pierr\Documents\GitHub\Projet-Web\Views\footer.tpl' */
+/* Smarty version 3.1.47, created on 2023-03-20 19:21:10
+  from 'C:\www\Projet-Web\Views\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.47',
-  'unifunc' => 'content_64187ff18c3044_17625543',
+  'unifunc' => 'content_6418a416b2c913_72093068',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '2cc19641de75c361472d759786d02ddd4f6c9eb2' => 
+    'cbc9347c2c97a089e10357c21358442097df76e2' => 
     array (
-      0 => 'C:\\Users\\pierr\\Documents\\GitHub\\Projet-Web\\Views\\footer.tpl',
-      1 => 1679324622,
+      0 => 'C:\\www\\Projet-Web\\Views\\footer.tpl',
+      1 => 1679336077,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64187ff18c3044_17625543 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6418a416b2c913_72093068 (Smarty_Internal_Template $_smarty_tpl) {
 ?><svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 <symbol id="facebook" viewBox="0 0 16 16">
     <path

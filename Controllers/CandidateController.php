@@ -1,29 +1,29 @@
 <?php
 namespace Website\Controllers;
 
-use Website\Models\AddressModel;
+use Website\Models\CandidateModel;
 
-class AddressController extends Controller
+class CandidateController extends Controller
 {
     public function index()
     {
         //on instacie le model coresspondant à la table people
-        $addressModel= new AddressModel;
+        $candidateModel= new CandidateModel;
         // on va chercher toutes les annonces 
-        $address= $addressModel->findAll();
+        $candidate= $candidateModel->findAll();
         
         //on genere la vue 
-        $this->rendu('address/index', ['address' =>$address]);
+        $this->rendu('candidate/index', ['candidate' =>$candidate]);
     }
     //afficher people
     public function read(int $id )
     {
         // on instancie le model
-        $addressModel= new AddressModel;
+        $candidateModel= new CandidateModel;
 
         //on va chercher un people par rapport a son id 
-        $address =$addressModel->find($id);
+        $candidate =$candidateModel->find($id);
         //on envoie à la vue 
-        $this->rendu('address/read', compact('address'));
+        $this->rendu('candidate/read', compact('candidate'));
     }
 }

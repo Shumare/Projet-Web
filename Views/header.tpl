@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{$title}</title>
-    <link rel="stylesheet" media="all" href="../media/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../media/bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -19,21 +19,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item" href="#">
-                        <a class="nav-link {if $page == 'home'}active" aria-current="page{/if}" href="#">Home</a>
+                    <li class="nav-item {if $page == 'home'}active{/if}">
+                        <a class="nav-link" href="#">Home</a>
                     </li>
-                    <li class="nav-item" href="#">
-                        <a class="nav-link {if $page == 'internship'}active" aria-current="page{/if}" href="#">Internships</a>
+                    <li class="nav-item {if $page == 'internships'}active{/if}">
+                        <a class="nav-link" href="#">Internships</a>
                     </li>
-                    <li class="nav-item" href="#">
-                        <a class="nav-link {if $page == 'companies'}active" aria-current="page{/if}" href="#">Companies</a>
+                    <li class="nav-item {if $page == 'companies'}active{/if}">
+                        <a class="nav-link" href="#">Companies</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {if $page == 'profile'}active" aria-current="page{/if}" href="#">My Profile</a>
+                    <li class="nav-item {if $page == 'profile'}active{/if}">
+                        <a class="nav-link" href="#">My Profile</a>
                     </li>
                     {if $user_role == 'admin' || $user_role == 'tutor'}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active" aria-current="page{/if}" href="#"
+                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" href="#"
                             id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin Panel
                         </a>

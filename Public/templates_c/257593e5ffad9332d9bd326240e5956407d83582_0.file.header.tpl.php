@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.47, created on 2023-03-20 16:45:09
-  from 'C:\Users\pierr\Documents\GitHub\Projet-Web\Views\header.tpl' */
+/* Smarty version 3.1.47, created on 2023-03-20 19:21:10
+  from 'C:\www\Projet-Web\Views\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.47',
-  'unifunc' => 'content_64187f8543b742_29122353',
+  'unifunc' => 'content_6418a416ac3433_18068900',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '23839e7807acd141cfd84f392f9a44254bb2b8a0' => 
+    '257593e5ffad9332d9bd326240e5956407d83582' => 
     array (
-      0 => 'C:\\Users\\pierr\\Documents\\GitHub\\Projet-Web\\Views\\header.tpl',
-      1 => 1679327049,
+      0 => 'C:\\www\\Projet-Web\\Views\\header.tpl',
+      1 => 1679336077,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64187f8543b742_29122353 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6418a416ac3433_18068900 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
