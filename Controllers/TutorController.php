@@ -2,7 +2,7 @@
 namespace Website\Controllers;
 
 use Website\Models\TutorModel;
-
+use Website\Models\PeopleModel;
 class TutorController extends Controller
 {
     public function index()
@@ -24,7 +24,13 @@ class TutorController extends Controller
  
          //on va chercher un people par rapport a son id 
          $tutor =$tutorModel->find($id);
+
+         // on instancie le model
+        $peopleModel= new PeopleModel;
+
+        //on va chercher un people par rapport a son id 
+        $people =$peopleModel->find($tutor->id_people);
          //on envoie à la vue 
-         $this->rendu(array('tutor/read'), compact('tutor'));
+         $this->rendu(array('tutor/read','people/read'), array_merge(compact('tutor'),compact('people')));
      }
 }
