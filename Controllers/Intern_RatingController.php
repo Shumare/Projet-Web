@@ -13,7 +13,7 @@ class Intern_RatingController extends Controller{
         $intern_rating= $intern_ratingModel->findAll();
         
         //on genere la vue 
-        $this->rendu('intern_rating/index', ['intern_rating' =>$intern_rating]);
+        $this->rendu(array('intern_rating/index'), ['intern_rating' =>$intern_rating]);
     }
 
      //afficher people
@@ -25,6 +25,6 @@ class Intern_RatingController extends Controller{
          //on va chercher un people par rapport a son id 
          $intern_rating =$intern_ratingModel->find($id);
          //on envoie à la vue 
-         $this->rendu('intern_rating/read', compact('intern_rating'));
+         $this->rendu(array('intern_rating/read'), compact('intern_rating'));
      }
 }

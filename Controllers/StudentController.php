@@ -2,7 +2,7 @@
 namespace Website\Controllers;
 
 use Website\Models\StudentModel;
-
+use Website\Models\PeopleModel;
 class StudentController extends Controller
 {
     public function index()
@@ -13,7 +13,7 @@ class StudentController extends Controller
         $student= $studentModel->findAll();
         
         //on genere la vue 
-        $this->rendu('student/index', ['student' =>$student]);
+        $this->rendu(array('student/index'), ['student' =>$student]);
     }
 
      //afficher people
@@ -24,7 +24,14 @@ class StudentController extends Controller
  
          //on va chercher un people par rapport a son id 
          $student =$studentModel->find($id);
+
+         // on instancie le model
+        $peopleModel= new PeopleModel;
+
+        //on va chercher un people par rapport a son id 
+        $people =$peopleModel->find($student->id_people);
+
          //on envoie à la vue 
-         $this->rendu('student/read', compact('student'));
+         $this->rendu(array('student/read','people/read'), array_merge(compact('student'),compact('people')));
      }
 }

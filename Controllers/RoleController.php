@@ -13,7 +13,7 @@ class RoleController extends Controller
         $role= $roleModel->findAll();
         
         //on genere la vue 
-        $this->rendu('role/index', ['role' =>$role]);
+        $this->rendu(array('role/index'), ['role' =>$role]);
     }
 
      //afficher people
@@ -25,6 +25,6 @@ class RoleController extends Controller
          //on va chercher un people par rapport a son id 
          $role =$roleModel->find($id);
          //on envoie à la vue 
-         $this->rendu('role/read', compact('role'));
+         $this->rendu(array('role/read'), compact('role'));
      }
 }

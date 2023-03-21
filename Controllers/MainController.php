@@ -8,6 +8,6 @@ class MainController extends Controller
 {
     public function index(){
        
-        $this->rendu('main/index');
+        $this->rendu(array('main/index'));
     }
 }

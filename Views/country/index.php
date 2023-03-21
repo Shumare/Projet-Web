@@ -2,6 +2,6 @@
 
     <pre>
     <?php foreach($country as $country): ?>
-        <h2><a href="/role/read/<?=$country->id?>"><?=$country->country_name?></a></h2>
+        <h2><a href="/country/read/<?=$country->id?>"><?=$country->country_name?></a></h2>
     <?php endforeach; ?>
     </pre>

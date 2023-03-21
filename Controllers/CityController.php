@@ -14,7 +14,7 @@ class CityController extends Controller
         $city= $cityModel->findAll();
         
         //on genere la vue 
-        $this->rendu('city/index', ['city' =>$city]);
+        $this->rendu(array('city/index'), ['city' =>$city]);
     }
 
      //afficher people
@@ -26,6 +26,6 @@ class CityController extends Controller
          //on va chercher un people par rapport a son id 
          $city =$cityModel->find($id);
          //on envoie à la vue 
-         $this->rendu('city/read', compact('city'));
+         $this->rendu(array('city/read'), compact('city'));
      }
 }

@@ -13,7 +13,7 @@ class StockedController extends Controller
         $stocked= $stockedModel->findAll();
         
         //on genere la vue 
-        $this->rendu('stocked/index', ['stocked' =>$stocked]);
+        $this->rendu(array('stocked/index'), ['stocked' =>$stocked]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class StockedController extends Controller
         //on va chercher un people par rapport a son id 
         $stocked =$stockedModel->find($id);
         //on envoie à la vue 
-        $this->rendu('stocked/read', compact('stocked'));
+        $this->rendu(array('stocked/read'), compact('stocked'));
     }
 }

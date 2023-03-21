@@ -5,7 +5,7 @@ namespace Website\Controllers;
 
  abstract class Controller
 {
-    public function rendu(string $fichier,  array $data = [])
+    public function rendu(array $fichier,  array $data = [])
     {
         //on extrait les données 
         extract($data);
@@ -13,8 +13,15 @@ namespace Website\Controllers;
         //on demarre le buffer de sortie
         ob_start();
 
-        // Crée le chemin et inclut le fichier de vue
-        require_once ROOT . '/Views/' . $fichier . '.php';
+        if(count($fichier)>=2){
+            for($i=0;$i<count($fichier);$i++){
+                require_once ROOT . '/Views/' . $fichier[$i] . '.php';
+            }
+        }else{
+            require_once ROOT . '/Views/' . $fichier[0] . '.php';
+        }
+
+       
 
         // On stocke le contenu dans $content
         $contenu = ob_get_clean();

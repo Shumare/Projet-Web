@@ -13,7 +13,7 @@ class NeedController extends Controller
         $needs= $needsModel->findAll();
         
         //on genere la vue 
-        $this->rendu('needs/index', ['needs' =>$needs]);
+        $this->rendu(array('needs/index'), ['needs' =>$needs]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class NeedController extends Controller
         //on va chercher un people par rapport a son id 
         $needs =$needsModel->find($id);
         //on envoie à la vue 
-        $this->rendu('needs/read', compact('needs'));
+        $this->rendu(array('needs/read'), compact('needs'));
     }
 }
