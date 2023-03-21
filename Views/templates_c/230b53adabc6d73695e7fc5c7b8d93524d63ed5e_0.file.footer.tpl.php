@@ -1,15 +1,15 @@
 <?php
-/* Smarty version 3.1.47, created on 2023-03-20 16:46:57
+/* Smarty version 3.1.47, created on 2023-03-20 16:10:53
   from 'C:\Users\pierr\Documents\GitHub\Projet-Web\Views\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.47',
-  'unifunc' => 'content_64187ff18c3044_17625543',
+  'unifunc' => 'content_6418777dbf1a73_24214414',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '2cc19641de75c361472d759786d02ddd4f6c9eb2' => 
+    '230b53adabc6d73695e7fc5c7b8d93524d63ed5e' => 
     array (
       0 => 'C:\\Users\\pierr\\Documents\\GitHub\\Projet-Web\\Views\\footer.tpl',
       1 => 1679324622,
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64187ff18c3044_17625543 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6418777dbf1a73_24214414 (Smarty_Internal_Template $_smarty_tpl) {
 ?><svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 <symbol id="facebook" viewBox="0 0 16 16">
     <path

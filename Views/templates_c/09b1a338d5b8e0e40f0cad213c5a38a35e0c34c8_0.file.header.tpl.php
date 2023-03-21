@@ -1,11 +1,35 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.47, created on 2023-03-20 16:10:53
+  from 'C:\Users\pierr\Documents\GitHub\Projet-Web\Views\header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.47',
+  'unifunc' => 'content_6418777dae6158_95924685',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '09b1a338d5b8e0e40f0cad213c5a38a35e0c34c8' => 
+    array (
+      0 => 'C:\\Users\\pierr\\Documents\\GitHub\\Projet-Web\\Views\\header.tpl',
+      1 => 1679320655,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6418777dae6158_95924685 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{$title}</title>
+    <title><?php echo $_smarty_tpl->tpl_vars['titre']->value;?>
+</title>
     <link rel="stylesheet" href="../../media/bootstrap/css/bootstrap.min.css">
 </head>
 
@@ -19,21 +43,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item {if $page == 'home'}active{/if}">
+                    <li class="nav-item <?php if ($_smarty_tpl->tpl_vars['page']->value == 'home') {?>active<?php }?>">
                         <a class="nav-link" href="#">Home</a>
                     </li>
-                    <li class="nav-item {if $page == 'internships'}active{/if}">
+                    <li class="nav-item <?php if ($_smarty_tpl->tpl_vars['page']->value == 'internships') {?>active<?php }?>">
                         <a class="nav-link" href="#">Internships</a>
                     </li>
-                    <li class="nav-item {if $page == 'companies'}active{/if}">
+                    <li class="nav-item <?php if ($_smarty_tpl->tpl_vars['page']->value == 'companies') {?>active<?php }?>">
                         <a class="nav-link" href="#">Companies</a>
                     </li>
-                    <li class="nav-item {if $page == 'profile'}active{/if}">
+                    <li class="nav-item <?php if ($_smarty_tpl->tpl_vars['page']->value == 'profile') {?>active<?php }?>">
                         <a class="nav-link" href="#">My Profile</a>
                     </li>
-                    {if $user_role == 'admin' || $user_role == 'tutor'}
+                    <?php if ($_smarty_tpl->tpl_vars['user_role']->value == 'admin' || $_smarty_tpl->tpl_vars['user_role']->value == 'tutor') {?>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" href="#"
+                        <a class="nav-link dropdown-toggle <?php if ($_smarty_tpl->tpl_vars['page']->value == 'admin_panel') {?>active<?php }?>" href="#"
                             id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin Panel
                         </a>
@@ -43,7 +67,7 @@
                             <li><a class="dropdown-item" href="#">Internships</a></li>
                         </ul>
                     </li>
-                    {/if}
+                    <?php }?>
                 </ul>
             </div>
         </div>
@@ -53,4 +77,5 @@
 $title : le titre de l'onglais
 $page le nom de la page active (home,internships,companies,profile)
 $user_role : le rôle de l'utilisateur (student, admin, tutor)
--->
+--><?php }
+}
