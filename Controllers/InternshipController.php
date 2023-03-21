@@ -1,29 +1,29 @@
 <?php
 namespace Website\Controllers;
 
-use Website\Models\AddressModel;
+use Website\Models\InternshipModel;
 
-class AddressController extends Controller
+class InternshipController extends Controller
 {
     public function index()
     {
         //on instacie le model coresspondant à la table people
-        $addressModel= new AddressModel;
+        $internshipModel= new InternshipModel;
         // on va chercher toutes les annonces 
-        $address= $addressModel->findAll();
+        $internship= $internshipModel->findAll();
         
         //on genere la vue 
-        $this->rendu('address/index', ['address' =>$address]);
+        $this->rendu('internship/index', ['internship' =>$internship]);
     }
     //afficher people
     public function read(int $id )
     {
         // on instancie le model
-        $addressModel= new AddressModel;
+        $internshipModel= new InternshipModel;
 
         //on va chercher un people par rapport a son id 
-        $address =$addressModel->find($id);
+        $internship =$internshipModel->find($id);
         //on envoie à la vue 
-        $this->rendu('address/read', compact('address'));
+        $this->rendu('internship/read', compact('internship'));
     }
 }
