@@ -1,5 +1,5 @@
 <?php
-require_once('../media/smarty-3.1.47/libs/Smarty.class.php');
+require_once('../Public/media/smarty-3.1.47/libs/Smarty.class.php');
 
 $smarty = new Smarty();
 
@@ -7,6 +7,11 @@ $smarty = new Smarty();
 $page = 'home';
 $user_role = 'admin';
 $title = "titre";
+
+$smarty->setTemplateDir('/templates');
+$smarty->setCompileDir('/templates_c');
+$smarty->setCacheDir('/cache');
+$smarty->setConfigDir('/configs');
 
 // Assigner les variables au template
 $smarty->assign('page', $page);
