@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    {if $nav == true}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">MIB</a>
@@ -48,6 +49,7 @@
             </div>
         </div>
     </nav>
+    {/if}
 
 <!--
 $title : le titre de l'onglais

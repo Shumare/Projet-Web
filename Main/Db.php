@@ -10,10 +10,10 @@ class Db extends PDO
     private static $instance;
 
     //info de connexion 
-    private const DBHOST= 'localhost';
-    private const DBUSER = 'root';
-    private const DBPASS ='';
-    private const DBNAME ='website';
+    private const DBHOST= '90.70.95.253';
+    private const DBUSER = 'Grp6';
+    private const DBPASS = 'Pass.GR6';
+    private const DBNAME = 'website';
 
     private function  __construct()
     {

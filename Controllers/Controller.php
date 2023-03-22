@@ -1,9 +1,8 @@
 <?php
-
 namespace Website\Controllers;
+use Smarty;
 
-
- abstract class Controller
+abstract class Controller
 {
     public function rendu(array $fichier,  array $data = [])
     {
@@ -15,18 +14,30 @@ namespace Website\Controllers;
 
         if(count($fichier)>=2){
             for($i=0;$i<count($fichier);$i++){
-                require_once ROOT . '/Views/' . $fichier[$i] . '.php';
+                require_once ROOT . '/smarty/templates/' . $fichier[$i] . '.php';
             }
         }else{
-            require_once ROOT . '/Views/' . $fichier[0] . '.php';
+            require_once ROOT . '/smarty/templates/' . $fichier[0] . '.php';
         }
-
-       
 
         // On stocke le contenu dans $content
         $contenu = ob_get_clean();
 
-        // On fabrique le "template"
-        require_once ROOT . '/Views/default.php';
+        return $contenu;
+        //$this->index($contenu);
+        //require_once ROOT . '/smarty/templates/index.tpl';
+    }
+
+    public function init_smarty()
+    {
+        require_once ROOT.'/smarty/Smarty.class.php';
+        $smarty = new Smarty();
+
+        $smarty->setTemplateDir('/smarty/templates');
+        $smarty->setCompileDir('/smarty/templates_c');
+        $smarty->setCacheDir('/smarty/cache');
+        $smarty->setConfigDir('/smarty/configs');
+
+        return $smarty;
     }
 }

@@ -14,7 +14,8 @@ class PeopleController extends Controller
         $people= $peopleModel->findAll();
         
         //on genere la vue 
-        $this->rendu(array('people/index'), ['people' =>$people]);
+        $contenu = $this->rendu(array('people/index'), ['people' =>$people]);
+        $this->display_index(/*page: $this->page, title: $this->title, user_role: $this->user_role,*/contenu: $contenu);
     }
     //afficher people
     public function read(int $id )
@@ -30,6 +31,24 @@ class PeopleController extends Controller
         //on va chercher un people par rapport a son id 
         $center =$centerModel->find($people->id_center);
         //on envoie à la vue 
-        $this->rendu(array('people/read','center/read'), array_merge(compact('center'),compact('people')));
+        $contenu = $this->rendu(array('people/read','center/read'), array_merge(compact('center'),compact('people')));
+        $this->display_index(/*page: $this->page, title: $this->title, user_role: $this->user_role,*/contenu: $contenu);
     }
+ 
+     public function  display_index(/*$page, $title, $user_role,*/ $contenu/*, bool $nav=true*/)
+     {
+         $smarty = Controller::init_smarty();
+         
+         /*$smarty->assign('page', $page);
+         $smarty->assign('title', $title);
+         $smarty->assign('user_role', $user_role);
+         $smarty->assign('nav', $nav);*/
+         $smarty->assign('contenu', $contenu);
+ 
+ 
+         //$smarty->display('smarty/templates/header.tpl');
+         $smarty->display('smarty/templates/people/index.tpl');
+         ///$smarty->display('smarty/templates/footer.tpl');
+ 
+     }
 }
