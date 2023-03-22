@@ -28,8 +28,6 @@ class AccountController extends Controller
         $this->rendu(array('account/read'), compact('account'));
     }
     
- 
-   
 
     public function create(){
         $accountModel= new AccountModel;
@@ -38,8 +36,8 @@ class AccountController extends Controller
         $accountModel->setId_people($_POST['id_people']);
         $accountModel->setId_role($_POST['id_role']);
         $account =$accountModel->create($accountModel);
-
-        $this->rendu(array('account/index'), compact('account'));
+        $account = $accountModel->findAll();
+        $this->rendu(array('account/create'), compact('account'));
     }
 
     public function dirige(){
@@ -47,5 +45,9 @@ class AccountController extends Controller
         $account =$accountModel->find(3);
         $this->rendu(array('account/dirige'), compact('account'));
     }
-    
+    public function delete(){
+        $accountModel= new AccountModel;
+        $account =$accountModel->delete($_POST['id']);
+        $this->rendu(array('account/delete'), compact('account'));
+    }
 }
