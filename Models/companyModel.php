@@ -181,4 +181,24 @@ class CompanyModel extends Model
 
         return $this;
     }
+
+    /**
+     * Get the value of comp_activity
+     */ 
+    public function getComp_activity()
+    {
+        return $this->comp_activity;
+    }
+
+    /**
+     * Set the value of comp_activity
+     *
+     * @return  self
+     */ 
+    public function setComp_activity($comp_activity)
+    {
+        $this->comp_activity = $comp_activity;
+
+        return $this;
+    }
 }

@@ -29,16 +29,7 @@ class AccountController extends Controller
     }
     
  
-    public function read2()
-    {
-        // on instancie le model
-        
-        $accountModel= new AccountModel;
-        //on va chercher un people par rapport a son id 
-        $account =$accountModel->find($_POST['test']);
-        //on envoie à la vue 
-        $this->rendu(array('account/read'), compact('account'));
-    }
+   
 
     public function create(){
         $accountModel= new AccountModel;

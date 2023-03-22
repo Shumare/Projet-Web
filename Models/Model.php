@@ -64,7 +64,7 @@ class Model extends Db
     }
 
 
-    public function update(int $id, Model $model)
+    public function update($id, Model $model)
 {
     $champs = [];
     $valeurs = [];
