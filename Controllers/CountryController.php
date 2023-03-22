@@ -14,7 +14,7 @@ class CountryController extends Controller
         $country= $countryModel->findAll();
         
         //on genere la vue 
-        $this->rendu('country/index', ['country' =>$country]);
+        $this->rendu(array('country/index'), ['country' =>$country]);
     }
 
      //afficher people
@@ -26,6 +26,6 @@ class CountryController extends Controller
          //on va chercher un people par rapport a son id 
          $country =$countryModel->find($id);
          //on envoie à la vue 
-         $this->rendu('country/read', compact('country'));
+         $this->rendu(array('country/read'), compact('country'));
      }
 }

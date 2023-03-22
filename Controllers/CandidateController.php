@@ -13,7 +13,7 @@ class CandidateController extends Controller
         $candidate= $candidateModel->findAll();
         
         //on genere la vue 
-        $this->rendu('candidate/index', ['candidate' =>$candidate]);
+        $this->rendu(array('candidate/index'), ['candidate' =>$candidate]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class CandidateController extends Controller
         //on va chercher un people par rapport a son id 
         $candidate =$candidateModel->find($id);
         //on envoie à la vue 
-        $this->rendu('candidate/read', compact('candidate'));
+        $this->rendu(array('candidate/read'), compact('candidate'));
     }
 }

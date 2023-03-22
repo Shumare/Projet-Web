@@ -13,7 +13,7 @@ class WishlistController extends Controller
         $wishlist= $wishlistModel->findAll();
         
         //on genere la vue 
-        $this->rendu('wishlist/index', ['wishlist' =>$wishlist]);
+        $this->rendu(array('wishlist/index'), ['wishlist' =>$wishlist]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class WishlistController extends Controller
         //on va chercher un people par rapport a son id 
         $wishlist =$wishlistModel->find($id);
         //on envoie à la vue 
-        $this->rendu('wishlist/read', compact('wishlist'));
+        $this->rendu(array('wishlist/read'), compact('wishlist'));
     }
 }

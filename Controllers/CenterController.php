@@ -14,7 +14,7 @@ class CenterController extends Controller
         $center= $centerModel->findAll();
         
         //on genere la vue 
-        $this->rendu('center/index', ['center' =>$center]);
+        $this->rendu(array('center/index'), ['center' =>$center]);
     }
     //afficher people
     public function read(int $id )
@@ -25,6 +25,6 @@ class CenterController extends Controller
         //on va chercher un people par rapport a son id 
         $center =$centerModel->find($id);
         //on envoie à la vue 
-        $this->rendu('center/read', compact('center'));
+        $this->rendu(array('center/read'), compact('center'));
     }
 }

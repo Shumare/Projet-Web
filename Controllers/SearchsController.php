@@ -13,7 +13,7 @@ class SearchsController extends Controller
         $searchs= $searchsModel->findAll();
         
         //on genere la vue 
-        $this->rendu('searchs/index', ['searchs' =>$searchs]);
+        $this->rendu(array('searchs/index'), ['searchs' =>$searchs]);
     }
     //afficher people
     public function read(int $id )
@@ -24,6 +24,6 @@ class SearchsController extends Controller
         //on va chercher un people par rapport a son id 
         $searchs =$searchsModel->find($id);
         //on envoie à la vue 
-        $this->rendu('searchs/read', compact('searchs'));
+        $this->rendu(array('searchs/read'), compact('searchs'));
     }
 }

@@ -14,7 +14,7 @@ class PromotionController extends Controller
         $promotion= $promotionModel->findAll();
         
         //on genere la vue 
-        $this->rendu('promotion/index', ['promotion' =>$promotion]);
+        $this->rendu(array('promotion/index'), ['promotion' =>$promotion]);
     }
 
      //afficher people
@@ -26,6 +26,6 @@ class PromotionController extends Controller
          //on va chercher un people par rapport a son id 
          $promotion =$promotionModel->find($id);
          //on envoie à la vue 
-         $this->rendu('promotion/read', compact('promotion'));
+         $this->rendu(array('promotion/read'), compact('promotion'));
      }
 }

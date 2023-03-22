@@ -14,7 +14,7 @@ class CompanyController extends Controller
         $company= $companyModel->findAll();
         
         //on genere la vue 
-        $this->rendu('company/index', ['company' =>$company]);
+        $this->rendu(array('company/index'), ['company' =>$company]);
     }
 
      //afficher people
@@ -26,6 +26,6 @@ class CompanyController extends Controller
          //on va chercher un people par rapport a son id 
          $company =$companyModel->find($id);
          //on envoie à la vue 
-         $this->rendu('company/read', compact('company'));
+         $this->rendu(array('company/read'), compact('company'));
      }
 }

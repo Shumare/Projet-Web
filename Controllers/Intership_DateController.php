@@ -13,7 +13,7 @@ class Intership_DateController extends Controller
         $intership_date= $intership_dateModel->findAll();
         
         //on genere la vue 
-        $this->rendu('intership_date/index', ['intership_date' =>$intership_date]);
+        $this->rendu(array('intership_date/index'), ['intership_date' =>$intership_date]);
     }
 
      //afficher people
@@ -25,6 +25,6 @@ class Intership_DateController extends Controller
          //on va chercher un people par rapport a son id 
          $intership_date =$intership_dateModel->find($id);
          //on envoie à la vue 
-         $this->rendu('intership_date/read', compact('intership_date'));
+         $this->rendu(array('intership_date/read'), compact('intership_date'));
      }
 }
