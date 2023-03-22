@@ -30,7 +30,7 @@ use Website\Models\PeopleModel;
 
   use Website\Autoloader;
   use Website\Main\Main;
-  define('ROOT', dirname(__DIR__));
+  define('ROOT', __DIR__);
   //var_dump(ROOT);
 
   require_once ROOT.'/Autoloader.php';

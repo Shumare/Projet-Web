@@ -53,7 +53,7 @@
 </footer>
 </footer>
 
-<script src="../media/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/media/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
