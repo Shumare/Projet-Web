@@ -33,4 +33,31 @@ class TutorController extends Controller
          //on envoie à la vue 
          $this->rendu(array('tutor/read','people/read'), array_merge(compact('tutor'),compact('people')));
      }
+     public function create(){
+        $tutorModel= new TutorModel;
+        $tutorModel->setId_people($_POST['id_people']);
+        $tutor =$tutorModel->create($tutorModel);
+        $tutor= $tutorModel->findAll();
+        $this->rendu(array('tutor/index'), compact('tutor'));
+    }
+    
+    public function dirige(){
+        $tutorModel= new TutorModel;
+        $tutor =$tutorModel->find(3);
+        $this->rendu(array('tutor/dirige'), compact('tutor'));
+    }
+    public function delete( int $id){
+        $tutorModel= new TutorModel;
+        $tutor =$tutorModel->delete($id);
+        $tutor= $tutorModel->findAll();
+        $this->rendu(array('tutor/index'), compact('tutor'));
+    }
+    public function update()
+    {
+        $tutorModel= new TutorModel;
+        $tutorModel->setId_people($_POST['id_people']);
+        $tutor =$tutorModel->update($_POST['id'], $tutorModel);
+        $tutor= $tutorModel->findAll();
+        $this->rendu(array('tutor/index'), compact('tutor'));
+    }
 }

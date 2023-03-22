@@ -45,9 +45,21 @@ class AccountController extends Controller
         $account =$accountModel->find(3);
         $this->rendu(array('account/dirige'), compact('account'));
     }
-    public function delete(){
-        $accountModel= new AccountModel;
-        $account =$accountModel->delete($_POST['id']);
-        $this->rendu(array('account/delete'), compact('account'));
+    public function delete( int $id){
+        $accountModel= new accountModel;
+        $account =$accountModel->delete($id);
+        $account= $accountModel->findAll();
+        $this->rendu(array('account/index'), compact('account'));
+    }
+    public function update()
+    {
+        $accountModel = new accountModel;
+        $accountModel->setAcc_email($_POST['acc_email']);
+        $accountModel->setAcc_password($_POST['acc_password']);
+        $accountModel->setId_people($_POST['id_people']);
+        $accountModel->setId_role($_POST['id_role']);
+        $account = $accountModel->update($_POST['id'], $accountModel);
+        $account = $accountModel->findAll();
+        $this->rendu(array('account/index'), compact('account'));
     }
 }
