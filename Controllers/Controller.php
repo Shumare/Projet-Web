@@ -9,7 +9,7 @@ namespace Website\Controllers;
     {
         //on extrait les données 
         extract($data);
-
+        var_dump($data);
         //on demarre le buffer de sortie
         ob_start();
 
@@ -25,7 +25,7 @@ namespace Website\Controllers;
 
         // On stocke le contenu dans $content
         $contenu = ob_get_clean();
-
+        
         // On fabrique le "template"
         require_once ROOT . '/Views/default.php';
     }
