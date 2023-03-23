@@ -1,1 +1,0 @@
-<a href="/account/index">Revenir à l'index</a>
