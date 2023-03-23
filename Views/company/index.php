@@ -1,3 +1,6 @@
+
+
+
 <h1> page d'acceuil des entreprises </h1>
 
     <pre>
@@ -8,4 +11,5 @@
     <?php endforeach; ?>
     <a href="/company/dirige">creation</a> 
    
+
     </pre>

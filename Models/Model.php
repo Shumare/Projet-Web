@@ -2,18 +2,41 @@
 namespace Website\Models;
 
 use Website\Main\Db;
+use PDO;
 
 class Model extends Db
 {
     protected $table;
     private  $db;
-     
+    
     public function findAll()
     {
-        $query = $this->requete('SELECT * FROM '.$this->table);
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+            $currentPage = (int) strip_tags($_GET['page']);
+        }else{
+            $currentPage = 3;
+        }
+        echo $currentPage;
+
+        $parPage=5;
+       
+        $premier = ($currentPage * $parPage) - $parPage;
+        echo $premier;
+
+        $sql = $this->requete("SELECT COUNT(*) AS nb_articles FROM $this->table");
+        $result=$sql->fetch();
+        $nbArticles =(int) $result->nb_articles;
+        $page = ceil($nbArticles/$parPage);
+        echo  "le $nbArticles";
+        echo $page;
+        $query = $this->requete("SELECT * FROM $this->table LIMIT $premier, $parPage");
+        $query->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+        
+        
         return $query->fetchAll();
     }
-
+    
 
     public function findBy(array $criteres)
     {
@@ -29,7 +52,7 @@ class Model extends Db
         $liste_champs = implode(' AND ', $champs);
 
         // On exécute la requête
-        return $this->requete("SELECT * FROM {$this->table} WHERE $liste_champs", $valeurs)->fetchAll();
+        return $this->requete("SELECT * FROM {$this->table} WHERE $liste_champs", $valeurs )->fetchAll();
     }
 
 
