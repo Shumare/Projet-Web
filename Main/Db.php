@@ -11,8 +11,8 @@ class Db extends PDO
 
     //info de connexion 
     private const DBHOST= 'localhost';
-    private const DBUSER = 'root';
-    private const DBPASS ='';
+    private const DBUSER = 'romain';
+    private const DBPASS ='lefo';
     private const DBNAME ='website';
 
     private function  __construct()

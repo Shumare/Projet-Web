@@ -16,14 +16,39 @@ class AccountController extends Controller
         $this->rendu(array('account/index'), ['account' =>$account]);
     }
     //afficher people
-    public function read(int $id )
+    public function read(int $id)
     {
         // on instancie le model
+        
         $accountModel= new AccountModel;
 
         //on va chercher un people par rapport a son id 
         $account =$accountModel->find($id);
         //on envoie à la vue 
         $this->rendu(array('account/read'), compact('account'));
+    }
+    
+
+
+    public function create(){
+        $accountModel= new AccountModel;
+        $accountModel->setAcc_email($_POST['acc_email']);
+        $accountModel->setAcc_password($_POST['acc_password']);
+        $accountModel->setId_people($_POST['id_people']);
+        $accountModel->setId_role($_POST['id_role']);
+        $account =$accountModel->create($accountModel);
+        $account = $accountModel->findAll();
+        $this->rendu(array('account/create'), compact('account'));
+    }
+
+    public function dirige(){
+        $accountModel= new AccountModel;
+        $account =$accountModel->find(3);
+        $this->rendu(array('account/dirige'), compact('account'));
+    }
+    public function delete(){
+        $accountModel= new AccountModel;
+        $account =$accountModel->delete($_POST['id']);
+        $this->rendu(array('account/delete'), compact('account'));
     }
 }

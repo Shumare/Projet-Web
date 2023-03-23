@@ -12,7 +12,7 @@ use Website\Models\PeopleModel;
 
   //$people =$model->findAll();
   
- // $peoples =$model->findBy(['people_lastname'=> 'Leforestier']);
+ // $peoples =$model->findBy(['people_lastname'=> 'Leforestier','people_lastname'=> 'Leforestier']);
  //$peoples =$model->find(2);
  /*$people =$model
     ->setPeople_firstname('Laurence')
