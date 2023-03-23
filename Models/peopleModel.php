@@ -22,13 +22,13 @@ class PeopleModel extends Model
     }
 
     
-    public function getPeople_id()
+    public function getId()
     {
         return $this->id;
     }
 
     
-    public function setPeople_id($id)
+    public function setId($id)
     {
         $this->id = $id;
 

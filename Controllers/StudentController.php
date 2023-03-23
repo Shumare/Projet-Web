@@ -34,4 +34,33 @@ class StudentController extends Controller
          //on envoie à la vue 
          $this->rendu(array('student/read','people/read'), array_merge(compact('student'),compact('people')));
      }
+     public function create(){
+        $studentModel= new StudentModel;
+        $studentModel->setId_promotion($_POST['id_promotion']);
+        $studentModel->setId_people($_POST['id_people']);
+        $student =$studentModel->create($studentModel);
+        $student= $studentModel->findAll();
+        $this->rendu(array('student/index'), compact('student'));
+    }
+    
+    public function dirige(){
+        $studentModel= new StudentModel;
+        $student =$studentModel->find(3);
+        $this->rendu(array('student/dirige'), compact('student'));
+    }
+    public function delete( int $id){
+        $studentModel= new StudentModel;
+        $student =$studentModel->delete($id);
+        $student= $studentModel->findAll();
+        $this->rendu(array('student/index'), compact('student'));
+    }
+    public function update()
+    {
+        $studentModel= new StudentModel;
+        $studentModel->setId_promotion($_POST['id_promotion']);
+        $studentModel->setId_people($_POST['id_people']);
+        $student =$studentModel->update($_POST['id'], $studentModel);
+        $student= $studentModel->findAll();
+        $this->rendu(array('student/index'), compact('student'));
+    }
 }

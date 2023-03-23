@@ -4,4 +4,5 @@
     <?php foreach($internship as $internship): ?>
         <h2><a href="/internship/read/<?=$internship->id?>"><?=$internship->inter_activity?></a></h2>
     <?php endforeach; ?>
+    <a href="/internship/dirige">creation</a> 
     </pre>

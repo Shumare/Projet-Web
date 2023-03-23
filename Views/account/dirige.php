@@ -1,4 +1,5 @@
 <form action="/account/create" method="POST">
+    
             <input type="text" name="acc_email">
             <input type="text" name="acc_password">
             <input type="text" name="id_people">

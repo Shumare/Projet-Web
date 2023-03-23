@@ -26,4 +26,31 @@ class WishlistController extends Controller
         //on envoie à la vue 
         $this->rendu(array('wishlist/read'), compact('wishlist'));
     }
+    public function create(){
+        $wishlistModel= new wishlistModel;
+        $wishlistModel->setId_student($_POST['id_student']);
+        $wishlist =$wishlistModel->create($wishlistModel);
+        $wishlist= $wishlistModel->findAll();
+        $this->rendu(array('wishlist/index'), compact('wishlist'));
+    }
+    
+    public function dirige(){
+        $wishlistModel= new wishlistModel;
+        $wishlist =$wishlistModel->find(3);
+        $this->rendu(array('wishlist/dirige'), compact('wishlist'));
+    }
+    public function delete( int $id){
+        $wishlistModel= new wishlistModel;
+        $wishlist =$wishlistModel->delete($id);
+        $wishlist= $wishlistModel->findAll();
+        $this->rendu(array('wishlist/index'), compact('wishlist'));
+    }
+    public function update()
+    {
+        $wishlistModel= new wishlistModel;
+        $wishlistModel->setId_student($_POST['id_student']);
+        $wishlist =$wishlistModel->update($_POST['id'], $wishlistModel);
+        $wishlist= $wishlistModel->findAll();
+        $this->rendu(array('wishlist/index'), compact('wishlist'));
+    }
 }
