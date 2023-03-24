@@ -7,16 +7,16 @@
 
     <pre>
     <?php foreach($company as $company): ?>
-        <h2><a href="/company/read/<?=$company->id?>"><?=$company->comp_name?></a></h2>
+        <li></li><a href="/company/read/<?=$company->id?>"><?=$company->comp_name?></a></h2>
         
      
     <?php endforeach; ?>
     
-        <div class="pagination">
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-        </div>
+    <a href="/company/index1">AAAAAA</a>
+    <a href="/company/index2">BBBBBB</a>
+    <button id="reload">
 
+    </button>
     </pre>
+
+<script src="test.js"></script>

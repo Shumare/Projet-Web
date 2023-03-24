@@ -21,8 +21,6 @@ namespace Website\Controllers;
             require_once ROOT . '/Views/' . $fichier[0] . '.php';
         }
 
-       echo $currentPage;
-
         // On stocke le contenu dans $content
         $contenu = ob_get_clean();
 

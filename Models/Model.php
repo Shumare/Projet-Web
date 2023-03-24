@@ -19,7 +19,7 @@ class Model extends Db
         return $query->fetchAll();
     }
 
-    public function pagination(int $pageACt)
+    public function pagination(int $pageAct)
     {
         /*
         if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -27,10 +27,20 @@ class Model extends Db
         }else{
             $currentPage = $_COOKIE["currentPage"];
         }*/
-        setcookie("currentPage",$_COOKIE["currentPage"]);
-        echo $_COOKIE["currentPage"];
+        
+        //setcookie("currentPage",$_COOKIE["currentPage"]);
+        if(!isset($_COOKIE["currentPage"])){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else if($_COOKIE["currentPage"]<0 ){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else{
+            setcookie("currentPage",$_COOKIE["currentPage"]+$pageAct);
+            $currentPage=$_COOKIE['currentPage']+1;
+        };
+        echo $_COOKIE["currentPage"],"aaaaaaaaaaaaa";
         $parPage=5;
-       $currentPage=$_COOKIE['currentpage'];
         $premier = ($currentPage * $parPage) - $parPage;
         echo $premier;
 
