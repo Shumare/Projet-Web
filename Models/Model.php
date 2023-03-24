@@ -29,6 +29,7 @@ class Model extends Db
         }*/
         
         //setcookie("currentPage",$_COOKIE["currentPage"]);
+        
         if(!isset($_COOKIE["currentPage"])){
             setcookie("currentPage",0);
             $currentPage=1;
@@ -37,7 +38,7 @@ class Model extends Db
             $currentPage=1;
         }else{
             setcookie("currentPage",$_COOKIE["currentPage"]+$pageAct);
-            $currentPage=$_COOKIE['currentPage']+1;
+            $currentPage=$_COOKIE['currentPage']+$pageAct;
         };
         echo $_COOKIE["currentPage"],"aaaaaaaaaaaaa";
         $parPage=5;

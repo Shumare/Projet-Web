@@ -26,3 +26,4 @@ $smarty->display('../Views/header.tpl');
 <?php
     $smarty->display('../Views/footer.tpl');
 ?>
+
