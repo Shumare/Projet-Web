@@ -12,7 +12,7 @@ class CompanyController extends Controller
         $companyModel= new CompanyModel;
         // on va chercher toutes les annonces 
         $company= $companyModel->findAll();
-        
+        $company=$companyModel->pagination(1);
         //on genere la vue 
         $this->rendu(array("company/index"), ['company' =>$company]);
     }
@@ -43,6 +43,8 @@ class CompanyController extends Controller
         $company= $companyModel->findAll();
         $this->rendu(array('company/index'), compact('company'));
     }
+
+    
 
     public function dirige(){
         $companyModel= new CompanyModel;

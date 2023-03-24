@@ -2,24 +2,35 @@
 namespace Website\Models;
 
 use Website\Main\Db;
-use PDO;
+
 
 class Model extends Db
 {
     protected $table;
+    protected  $currentPage;
     private  $db;
     
     public function findAll()
     {
+       
+        $query = $this->requete("SELECT * FROM $this->table");
+       
+  
+        return $query->fetchAll();
+    }
+
+    public function pagination(int $pageACt)
+    {
+        /*
         if(isset($_GET['page']) && !empty($_GET['page'])){
             $currentPage = (int) strip_tags($_GET['page']);
         }else{
-            $currentPage = 3;
-        }
-        echo $currentPage;
-
+            $currentPage = $_COOKIE["currentPage"];
+        }*/
+        setcookie("currentPage",$_COOKIE["currentPage"]);
+        echo $_COOKIE["currentPage"];
         $parPage=5;
-       
+       $currentPage=$_COOKIE['currentpage'];
         $premier = ($currentPage * $parPage) - $parPage;
         echo $premier;
 
@@ -27,13 +38,9 @@ class Model extends Db
         $result=$sql->fetch();
         $nbArticles =(int) $result->nb_articles;
         $page = ceil($nbArticles/$parPage);
-        echo  "le $nbArticles";
+        echo  " le $nbArticles ";
         echo $page;
         $query = $this->requete("SELECT * FROM $this->table LIMIT $premier, $parPage");
-        $query->bindValue(':premier', $premier, PDO::PARAM_INT);
-        $query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
-        
-        
         return $query->fetchAll();
     }
     
@@ -130,4 +137,6 @@ public function delete(int $id){
             return $this->db->query($sql);
         }
     }
+
+    
 }
