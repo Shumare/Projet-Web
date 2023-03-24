@@ -12,7 +12,7 @@ class CompanyController extends Controller
         $companyModel= new CompanyModel;
         // on va chercher toutes les annonces
         $company=$companyModel->pagination(1);
-        
+        $_COOKIE["currentPage"] = 0;
         //on genere la vue 
         $this->rendu(array("company/index"), ['company' =>$company]);
     }

@@ -40,11 +40,12 @@ class Model extends Db
             setcookie("currentPage",$_COOKIE["currentPage"]+$pageAct);
             $currentPage=$_COOKIE['currentPage']+$pageAct;
         };
-        echo $_COOKIE["currentPage"],"aaaaaaaaaaaaa";
         $parPage=5;
         $premier = ($currentPage * $parPage) - $parPage;
-        echo $premier;
-
+        echo "premier".$premier;
+        if($premier<0){
+            $premier=0;
+        }
         $sql = $this->requete("SELECT COUNT(*) AS nb_articles FROM $this->table");
         $result=$sql->fetch();
         $nbArticles =(int) $result->nb_articles;

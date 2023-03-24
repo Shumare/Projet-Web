@@ -12,8 +12,10 @@
      
     <?php endforeach; ?>
     
-    <a href="/company/index1">AAAAAA</a>
-    <a href="/company/index2">BBBBBB</a>
+    <a href="/company/index1">Suivant</a>
+    <p><?php $_COOKIE['currentPage']?></p>
+    <a href="/company/index2">Précedent</a>
+
     <button id="reload">
 
     </button>
