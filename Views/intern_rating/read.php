@@ -5,6 +5,6 @@
         <div><?= $intern_rating ->int_wage?></div>
         <div><?= $intern_rating ->int_acquired_experience?></div>
         <div><?= $intern_rating ->int_supervision_qualities?></div>
-
+        
         
 </pre>
