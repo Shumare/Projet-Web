@@ -3,20 +3,57 @@ namespace Website\Models;
 
 use Website\Main\Db;
 
+
 class Model extends Db
 {
     protected $table;
+    protected  $currentPage;
     private  $db;
-     
+    
     public function findAll()
     {
-        $query = $this->requete('SELECT * FROM '.$this->table);
+       
+        $query = $this->requete("SELECT * FROM $this->table");
+       
+  
         return $query->fetchAll();
     }
 
+    public function pagination(int $pageAct)
+    {
+
+        if(!isset($_COOKIE["currentPage"])){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else if($_COOKIE["currentPage"]<0 ){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else{
+            setcookie("currentPage",$_COOKIE["currentPage"]+$pageAct);
+            $currentPage=$_COOKIE['currentPage']+$pageAct;
+        };
+
+        $parPage=5;
+        $premier = ($currentPage * $parPage) - $parPage;
+        echo "premier".$premier;
+        if($premier<0){
+            $premier=0;
+        }
+
+        $sql = $this->requete("SELECT COUNT(*) AS nb_articles FROM $this->table");
+        $result=$sql->fetch();
+        $nbArticles =(int) $result->nb_articles;
+        $page = ceil($nbArticles/$parPage);
+        echo  " le $nbArticles ";
+        echo $page;
+        $query = $this->requete("SELECT * FROM $this->table /*where comp_name='romain'*/ LIMIT $premier, $parPage");
+        return $query->fetchAll();
+    }
+    
 
     public function findBy(array $criteres)
     {
+        
         $champs= [];
         $valeurs =[];
 
@@ -29,7 +66,7 @@ class Model extends Db
         $liste_champs = implode(' AND ', $champs);
 
         // On exécute la requête
-        return $this->requete("SELECT * FROM {$this->table} WHERE $liste_champs", $valeurs)->fetchAll();
+        return $this->requete("SELECT * FROM {$this->table} WHERE $liste_champs", $valeurs )->fetchAll();
     }
 
 
@@ -107,4 +144,6 @@ public function delete(int $id){
             return $this->db->query($sql);
         }
     }
+
+    
 }

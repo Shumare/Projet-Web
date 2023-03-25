@@ -10,11 +10,37 @@ class CompanyController extends Controller
     {
         //on instacie le model coresspondant à la table people
         $companyModel= new CompanyModel;
-        // on va chercher toutes les annonces 
-        $company= $companyModel->findAll();
+        // on va chercher toutes les annonces
+        $company=$companyModel->pagination(0);
+
+        //on genere la vue 
+        $this->rendu(array("company/index"), ['company' =>$company]);
+    }
+
+    public function next()
+    {
+        //on instacie le model coresspondant à la table people
+        $companyModel= new CompanyModel;
+        // on va chercher toutes les annonces
+        
+        $company=$companyModel->pagination(1);
+        
         
         //on genere la vue 
-        $this->rendu(array('company/index'), ['company' =>$company]);
+        $this->rendu(array("company/index"), ['company' =>$company]);
+    }
+
+    public function previous()
+    {
+        //on instacie le model coresspondant à la table people
+        $companyModel= new CompanyModel;
+        // on va chercher toutes les annonces
+        
+        $company=$companyModel->pagination(-1);
+        
+        
+        //on genere la vue 
+        $this->rendu(array("company/index"), ['company' =>$company]);
     }
 
      //afficher people
@@ -43,6 +69,8 @@ class CompanyController extends Controller
         $company= $companyModel->findAll();
         $this->rendu(array('company/index'), compact('company'));
     }
+
+    
 
     public function dirige(){
         $companyModel= new CompanyModel;
