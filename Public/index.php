@@ -29,7 +29,7 @@ use Website\Models\PeopleModel;
   var_dump($center);*/
 
   use Website\Autoloader;
-  use Website\Main\Main;
+  use Website\Controllers\MainController;
   define('ROOT', dirname(__DIR__));
   //var_dump(ROOT);
 
@@ -40,7 +40,7 @@ use Website\Models\PeopleModel;
   //$userModel = new Website\Models\UserModel;
   //$userModel->checkConnection();
 
-  $website = new Main();
+  $website = new MainController();
   if ($website->checklogin() == true) {
     $website->start();
   }elseif ($website->checklogin() == false) {
