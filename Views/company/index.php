@@ -12,9 +12,9 @@
      
     <?php endforeach; ?>
     
-    <a href="/company/index1">Suivant</a>
-    <p><?php $_COOKIE['currentPage']?></p>
-    <a href="/company/index2">Précedent</a>
+    <a href="/company/next">Suivant</a>
+
+    <a href="/company/previous">Précedent</a>
 
     <button id="reload">
 

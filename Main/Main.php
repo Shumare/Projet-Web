@@ -3,6 +3,7 @@
 namespace Website\Main;
 
 use Website\controllers\MainController;
+use Website\Controllers\UserController;
 /**
  * routeur principal
  */
@@ -54,5 +55,33 @@ class Main
             $controller->index();
 
        }
+    }
+
+    public function startlogin()
+    {
+        if (($_SERVER['REQUEST_URI'] == '/user/index') ){
+            $usrctl = new UserController;
+         $usrctl->index();
+        }elseif ($_SERVER['REQUEST_URI'] == '/user/login') {
+            $usrctl = new UserController;
+            $usrctl->login();
+        }else{
+            header('Location: /user/index');
+        //$this->start();
+        }
+    }
+
+    public function checklogin()
+    {
+        //on verifie si l'utilisateur est connecté
+        if(!isset($_COOKIE['login_cookie']) || !isset($_SESSION['login_cookie'])){
+            //l'utilisateur n'est pas connecté
+            //on le redirige vers la page de connexion
+            // header('Location: /user/login');
+            // exit;
+            return false;
+        }elseif (isset($_COOKIE['login_cookie']) == isset($_SESSION['login_cookie'])) {
+            return true;
+        }
     }
 }

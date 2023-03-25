@@ -1,3 +1,4 @@
+{if $user_role != ''}
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 <symbol id="facebook" viewBox="0 0 16 16">
     <path
@@ -52,8 +53,8 @@
     </ul>
 </footer>
 </footer>
-
-<script src="../media/bootstrap/js/bootstrap.bundle.min.js"></script>
+{/if}
+<script src="/media/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -11,13 +11,15 @@ class CompanyController extends Controller
         //on instacie le model coresspondant à la table people
         $companyModel= new CompanyModel;
         // on va chercher toutes les annonces
-        $company=$companyModel->pagination(1);
-        $_COOKIE["currentPage"] = 0;
+        $company=$companyModel->pagination(0);
+
+        $_SESSION['current_page'] = 'company';
+        $_SESSION['page_title'] = 'Company';
         //on genere la vue 
         $this->rendu(array("company/index"), ['company' =>$company]);
     }
 
-    public function index1()
+    public function next()
     {
         //on instacie le model coresspondant à la table people
         $companyModel= new CompanyModel;
@@ -30,7 +32,7 @@ class CompanyController extends Controller
         $this->rendu(array("company/index"), ['company' =>$company]);
     }
 
-    public function index2()
+    public function previous()
     {
         //on instacie le model coresspondant à la table people
         $companyModel= new CompanyModel;

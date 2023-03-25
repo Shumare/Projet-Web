@@ -3,3 +3,16 @@
 
 RewriteEngine On
 RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1
+
+# # Configuration de l'authentification
+# AuthType form
+# AuthName "Authentification requise"
+# AuthFormProvider file
+
+# # Activation des sessions PHP
+# Session On
+
+# # Restriction d'accès aux pages d'administration aux utilisateurs admin
+# <If "%{REQUEST_URI} =~ m#^/admin/# && %{ENV:REDIRECT_STATUS} != 200">
+#   Require expr %{REMOTE_USER} =~ /^(admin|tutor)/
+# </If>

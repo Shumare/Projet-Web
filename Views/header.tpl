@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{$title}</title>
-    <link rel="stylesheet" media="all" href="../media/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" media="all" href="/media/bootstrap/css/bootstrap.min.css" type="text/css">
 </head>
 
 <body>
+{if $user_role != ''}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="main">MIB</a>
+            <a class="navbar-brand" href="/main/index">MIB</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -20,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {if $page == 'home'}active" aria-current="page{/if}" href="main">Home</a>
+                        <a class="nav-link {if $page == 'home'}active" aria-current="page{/if}" href="/main/index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {if $page == 'internships'}active" aria-current="page{/if}" href="internship">Internships</a>
+                        <a class="nav-link {if $page == 'internships'}active" aria-current="page{/if}" href="/internship">Internships</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {if $page == 'companies'}active" aria-current="page{/if}" href="company">Companies</a>
+                        <a class="nav-link {if $page == 'company'}active" aria-current="page{/if}" href="/company">Companies</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {if $page == 'profile'}active" aria-current="page{/if}" href="#">My Profile</a>
@@ -38,9 +39,9 @@
                             Admin Panel
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="people">Users</a></li>
-                            <li><a class="dropdown-item" href="company">Companies</a></li>
-                            <li><a class="dropdown-item" href="internship">Internships</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="people">Users</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="company">Companies</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_internships'}active" aria-current="page{/if}" href="internship">Internships</a></li>
                         </ul>
                     </li>
                     {/if}
@@ -48,7 +49,7 @@
             </div>
         </div>
     </nav>
-
+{/if}
 <!--
 $title : le titre de l'onglais
 $page le nom de la page active (home,internships,companies,profile)
