@@ -145,6 +145,7 @@ public function delete(int $id){
             return $this->db->query($sql);
         }
     }
+
 	/**
 	 * @return mixed
 	 */

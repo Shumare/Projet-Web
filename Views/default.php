@@ -28,3 +28,4 @@ $smarty->display('../Views/header.tpl');
 // Afficher le footer
 $smarty->display('../Views/footer.tpl');
 ?>
+

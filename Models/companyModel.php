@@ -21,7 +21,6 @@ class CompanyModel extends Model
     }
 
 
-
     /**
      * Get the value of id
      */ 
