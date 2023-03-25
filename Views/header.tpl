@@ -13,7 +13,7 @@
 {if $user_role != ''}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">MIB</a>
+            <a class="navbar-brand" href="/main/index">MIB</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {if $page == 'home'}active" aria-current="page{/if}" href="#">Home</a>
+                        <a class="nav-link {if $page == 'home'}active" aria-current="page{/if}" href="/main/index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {if $page == 'internships'}active" aria-current="page{/if}" href="#">Internships</a>
+                        <a class="nav-link {if $page == 'internships'}active" aria-current="page{/if}" href="/internship">Internships</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {if $page == 'companies'}active" aria-current="page{/if}" href="#">Companies</a>
+                        <a class="nav-link {if $page == 'company'}active" aria-current="page{/if}" href="/company">Companies</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {if $page == 'profile'}active" aria-current="page{/if}" href="#">My Profile</a>
@@ -39,9 +39,9 @@
                             Admin Panel
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Users</a></li>
-                            <li><a class="dropdown-item" href="#">Companies</a></li>
-                            <li><a class="dropdown-item" href="#">Internships</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/user/user_management">Users</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="#">Companies</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_internships'}active" aria-current="page{/if}" href="#">Internships</a></li>
                         </ul>
                     </li>
                     {/if}

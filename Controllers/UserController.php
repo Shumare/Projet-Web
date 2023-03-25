@@ -7,6 +7,7 @@ class UserController extends Controller
 {
     public function index()
     {
+        $_SESSION['page_title'] = 'Login';
         $this->rendu(array('user/index'), [""]);
     }
 

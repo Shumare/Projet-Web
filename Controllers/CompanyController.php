@@ -14,6 +14,8 @@ class CompanyController extends Controller
         $company= $companyModel->findAll();
         
         //on genere la vue 
+        $_SESSION['current_page'] = 'company';
+        $_SESSION['page_title'] = 'Company';
         $this->rendu(array('company/index'), ['company' =>$company]);
     }
 

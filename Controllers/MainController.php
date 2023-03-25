@@ -11,6 +11,8 @@ class MainController extends Controller
         // verifie si l'utilisateur est connecté
         // $user = new UserModel();
         // $user->checkConnection();
+        $_SESSION['current_page'] = 'home';
+        $_SESSION['page_title'] = 'Home';
         $this->rendu(array('main/index'));
     }
 }

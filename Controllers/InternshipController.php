@@ -15,6 +15,8 @@ class InternshipController extends Controller
         $internship= $internshipModel->findAll();
         
         //on genere la vue 
+        $_SESSION['current_page'] = 'internships';
+        $_SESSION['page_title'] = 'Internship';
         $this->rendu(array('internship/index'), ['internship' =>$internship]);
     }
     //afficher people

@@ -4,9 +4,9 @@ require_once('media/smarty-3.1.47/libs/Smarty.class.php');
 $smarty = new Smarty();
  
 // Définir les variables pour le template
-$page = 'home';
+$page = $_SESSION['current_page'] ?? 'home';
 $user_role = $_SESSION['user_role'] ?? '';
-$title = "titre";
+$title = $_SESSION['page_title'] ?? 'no name';
 
 $smarty->setTemplateDir('/templates');
 $smarty->setCompileDir('/templates_c');
