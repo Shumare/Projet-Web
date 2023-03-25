@@ -21,15 +21,7 @@ class Model extends Db
 
     public function pagination(int $pageAct)
     {
-        /*
-        if(isset($_GET['page']) && !empty($_GET['page'])){
-            $currentPage = (int) strip_tags($_GET['page']);
-        }else{
-            $currentPage = $_COOKIE["currentPage"];
-        }*/
-        
-        //setcookie("currentPage",$_COOKIE["currentPage"]);
-        
+
         if(!isset($_COOKIE["currentPage"])){
             setcookie("currentPage",0);
             $currentPage=1;
@@ -40,25 +32,28 @@ class Model extends Db
             setcookie("currentPage",$_COOKIE["currentPage"]+$pageAct);
             $currentPage=$_COOKIE['currentPage']+$pageAct;
         };
+
         $parPage=5;
         $premier = ($currentPage * $parPage) - $parPage;
         echo "premier".$premier;
         if($premier<0){
             $premier=0;
         }
+
         $sql = $this->requete("SELECT COUNT(*) AS nb_articles FROM $this->table");
         $result=$sql->fetch();
         $nbArticles =(int) $result->nb_articles;
         $page = ceil($nbArticles/$parPage);
         echo  " le $nbArticles ";
         echo $page;
-        $query = $this->requete("SELECT * FROM $this->table LIMIT $premier, $parPage");
+        $query = $this->requete("SELECT * FROM $this->table /*where comp_name='romain'*/ LIMIT $premier, $parPage");
         return $query->fetchAll();
     }
     
 
     public function findBy(array $criteres)
     {
+        
         $champs= [];
         $valeurs =[];
 
