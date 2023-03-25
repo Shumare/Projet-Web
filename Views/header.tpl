@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{$title}</title>
-    <link rel="stylesheet" media="all" href="../media/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" media="all" href="/media/bootstrap/css/bootstrap.min.css" type="text/css">
 </head>
 
 <body>
+{if $user_role != ''}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">MIB</a>
@@ -48,7 +49,7 @@
             </div>
         </div>
     </nav>
-
+{/if}
 <!--
 $title : le titre de l'onglais
 $page le nom de la page active (home,internships,companies,profile)

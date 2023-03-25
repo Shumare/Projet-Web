@@ -6,6 +6,7 @@ use Website\Main\Db;
 class Model extends Db
 {
     protected $table;
+    protected $cookie_key;
     private  $db;
      
     public function findAll()
@@ -107,4 +108,20 @@ public function delete(int $id){
             return $this->db->query($sql);
         }
     }
+
+	/**
+	 * @return mixed
+	 */
+	public function getCookie_key() {
+		return $this->cookie_key;
+	}
+	
+	/**
+	 * @param mixed $cookie_key 
+	 * @return self
+	 */
+	public function setCookie_key(): self {
+		$this->cookie_key = 'dgrqrg65z4ef684zeef62a';
+		return $this;
+	}
 }
