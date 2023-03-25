@@ -1,76 +1,152 @@
 <?php
+namespace Website\Models;
 
-namespace Website\Controllers;
+use Website\Main\Db;
 
-use Website\Models\CompanyModel;
 
-class CompanyController extends Controller 
+class Model extends Db
 {
-    public function index()
+    protected $table;
+    protected  $currentPage;
+    private  $db;
+    
+    public function findAll()
     {
-        //on instacie le model coresspondant à la table people
-        $companyModel= new CompanyModel;
-        // on va chercher toutes les annonces 
-        $company= $companyModel->findAll();
-        
-        //on genere la vue 
+       
+        $query = $this->requete("SELECT * FROM $this->table");
+       
+  
+        return $query->fetchAll();
+    }
+
+    public function pagination(int $pageAct)
+    {
+
         $_SESSION['current_page'] = 'company';
         $_SESSION['page_title'] = 'Company';
-        $this->rendu(array('company/index'), ['company' =>$company]);
-    }
 
-     //afficher people
-     public function read(int $id )
-     {
-         // on instancie le model
-         $companyModel= new CompanyModel;
- 
-         //on va chercher un people par rapport a son id 
-         $company =$companyModel->find($id);
-         //on envoie à la vue 
-         $this->rendu(array('company/read'), compact('company'));
-     }
+        if(!isset($_COOKIE["currentPage"])){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else if($_COOKIE["currentPage"]<0 ){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else{
+            setcookie("currentPage",$_COOKIE["currentPage"]+$pageAct);
+            $currentPage=$_COOKIE['currentPage']+$pageAct;
+        };
 
-     public function create(){
-        $companyModel= new CompanyModel;
-        $companyModel->setComp_name($_POST['comp_name']);
-        $companyModel->setComp_activity($_POST['comp_activity']);
-        $companyModel->setComp_description($_POST['comp_description']);
-        $companyModel->setComp_phone_number($_POST['comp_phone_number']);
-        $companyModel->setComp_number_employees($_POST['comp_number_employees']);
-        $companyModel->setComp_tutor_rating($_POST['comp_tutor_rating']);
-        $companyModel->setComp_current_intern($_POST['comp_current_intern']);
-        $companyModel->setComp_active($_POST['comp_active']);
-        $company =$companyModel->create($companyModel);
-        $company= $companyModel->findAll();
-        $this->rendu(array('company/index'), compact('company'));
-    }
+        $parPage=5;
+        $premier = ($currentPage * $parPage) - $parPage;
+        echo "premier".$premier;
+        if($premier<0){
+            $premier=0;
+        }
 
-    public function dirige(){
-        $companyModel= new CompanyModel;
-        $company =$companyModel->find(3);
-        $this->rendu(array('company/dirige'), compact('company'));
+        $sql = $this->requete("SELECT COUNT(*) AS nb_articles FROM $this->table");
+        $result=$sql->fetch();
+        $nbArticles =(int) $result->nb_articles;
+        $page = ceil($nbArticles/$parPage);
+        echo  " le $nbArticles ";
+        echo $page;
+        $query = $this->requete("SELECT * FROM $this->table /*where comp_name='romain'*/ LIMIT $premier, $parPage");
+        return $query->fetchAll();
     }
-    public function delete( int $id){
-        $companyModel= new CompanyModel;
-        $company =$companyModel->delete($id);
-        $company= $companyModel->findAll();
-        $this->rendu(array('company/index'), compact('company'));
-    }
-    public function update()
+    
+
+    public function findBy(array $criteres)
     {
-        $companyModel= new CompanyModel;
-        $id=$companyModel->setId($_POST['id']);
-        $companyModel->setComp_name($_POST['comp_name']);
-        $companyModel->setComp_activity($_POST['comp_activity']);
-        $companyModel->setComp_description($_POST['comp_description']);
-        $companyModel->setComp_phone_number($_POST['comp_phone_number']);
-        $companyModel->setComp_number_employees($_POST['comp_number_employees']);
-        $companyModel->setComp_tutor_rating($_POST['comp_tutor_rating']);
-        $companyModel->setComp_current_intern($_POST['comp_current_intern']);
-        $companyModel->setComp_active($_POST['comp_active']);
-        $company =$companyModel->update($_POST['id'], $companyModel);
-        $company= $companyModel->findAll();
-        $this->rendu(array('company/index'), compact('company'));
+        
+        $champs= [];
+        $valeurs =[];
+
+        foreach($criteres as $champ=> $valeur)
+        {
+            $champs[]="$champ = ?";
+            $valeurs[]= $valeur;
+        }
+        // On transforme le tableau en chaîne de caractères séparée par des AND
+        $liste_champs = implode(' AND ', $champs);
+
+        // On exécute la requête
+        return $this->requete("SELECT * FROM {$this->table} WHERE $liste_champs", $valeurs )->fetchAll();
     }
+
+
+    public function find(int $id)
+    {
+        return $this->requete("SELECT * FROM $this->table WHERE  id =$id")->fetch();
+    }
+
+
+    public function create(Model $model)
+    {
+        $champs = [];
+        $inter = [];
+        $valeurs = [];
+    
+        // On boucle pour éclater le tableau
+        foreach($model as $champ => $valeur){
+            // INSERT INTO annonces (titre, description, actif) VALUES (?, ?, ?)
+            if($valeur !== null && $champ != 'db' && $champ != 'table'){
+                $champs[] = $champ;
+                $inter[] = "?";
+                $valeurs[] = $valeur;
+            }
+        }
+    
+        // On transforme le tableau "champs" en une chaine de caractères
+        $liste_champs = implode(', ', $champs);
+        $liste_inter = implode(', ', $inter);
+    
+        // On exécute la requête
+        return $this->requete('INSERT INTO '.$this->table.' ('. $liste_champs.')VALUES('.$liste_inter.')', $valeurs);
+    }
+
+
+    public function update($id, Model $model)
+{
+    $champs = [];
+    $valeurs = [];
+
+    // On boucle pour éclater le tableau
+    foreach($model as $champ => $valeur){
+        // UPDATE annonces SET titre = ?, description = ?, actif = ? WHERE id= ?
+        if($valeur !== null && $champ != 'db' && $champ != 'table'){
+            $champs[] = "$champ = ?";
+            $valeurs[] = $valeur;
+        }
+    }
+    $valeurs[] = $id;
+
+    // On transforme le tableau "champs" en une chaine de caractères
+    $liste_champs = implode(', ', $champs);
+
+    // On exécute la requête
+    return $this->requete('UPDATE '.$this->table.' SET '. $liste_champs.' WHERE id = ?', $valeurs);
+}
+
+public function delete(int $id){
+    return $this->requete("DELETE FROM {$this->table} WHERE id = ?", [$id]);
+}
+
+
+    public function requete(string $sql, array $attributs = null)
+    {
+        // On récupère l'instance de Db
+        $this->db = Db::getInstance();
+    
+        // On vérifie si on a des attributs
+        if($attributs !== null){
+            // Requête préparée
+            $query = $this->db->prepare($sql);
+            $query->execute($attributs);
+            return $query;
+        }else{
+            // Requête simple
+            return $this->db->query($sql);
+        }
+    }
+
+    
 }
