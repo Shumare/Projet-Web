@@ -22,7 +22,7 @@ class UserModel extends Model
         $stmt->execute([$username, $hashed_password]);
     }
 
-    protected function login($acc_email, $acc_password)
+    public function login($acc_email, $acc_password)
     {
         $query = "SELECT account.acc_email, account.acc_password, role.role AS user_role FROM account INNER JOIN role ON account.id_role = role.id WHERE acc_email = ? && acc_password = ?;";
         $stmt = $this->db->prepare($query);
@@ -52,7 +52,7 @@ class UserModel extends Model
         return false;
     }
 
-    protected function logout()
+    public function logout()
     {
         // Suppression de l'identifiant de session dans la session PHP
         unset($_SESSION['session_id']);
@@ -64,7 +64,7 @@ class UserModel extends Model
         return true;
     }
 
-    protected function isauth()
+    public function isauth()
     {
         if ($_SESSION['user_role'] == 'admin' || $_SESSION['user_role'] == 'tutor') {
             return true;
