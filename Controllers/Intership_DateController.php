@@ -27,4 +27,4 @@ class Intership_DateController extends Controller
          //on envoie à la vue 
          $this->rendu(array('intership_date/read'), compact('intership_date'));
      }
-}
+    }
