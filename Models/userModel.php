@@ -1,7 +1,7 @@
 <?php
 namespace Website\Models;
-
-use Website\Main\Db;
+ 
+use Website\Models\Db;
 
 class UserModel extends Model
 {
@@ -56,7 +56,7 @@ class UserModel extends Model
     {
         // Suppression de l'identifiant de session dans la session PHP
         unset($_SESSION['session_id']);
-
+        unset($_SESSION['user_type']);
         // Suppression du cookie de connexion
         setcookie('login_cookie', '', time() - 3600, '/', '', true, true); // Durée de validité négative pour supprimer le cookie
         session_destroy();

@@ -1,7 +1,7 @@
 <?php
 namespace Website\Models;
 
-use Website\Main\Db;
+use Website\Models\Db;
 
 
 class Model extends Db
