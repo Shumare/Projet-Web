@@ -1,12 +1,12 @@
 <?php
-require_once('../Public/media/smarty-3.1.47/libs/Smarty.class.php');
+require_once('media/smarty-3.1.47/libs/Smarty.class.php');
 
 $smarty = new Smarty();
-
+ 
 // Définir les variables pour le template
-$page = 'home';
-$user_role = 'admin';
-$title = "titre";
+$page = $_SESSION['current_page'] ?? 'home';
+$user_role = $_SESSION['user_role'] ?? '';
+$title = $_SESSION['page_title'] ?? 'no name';
 
 $smarty->setTemplateDir('/templates');
 $smarty->setCompileDir('/templates_c');
@@ -17,6 +17,7 @@ $smarty->setConfigDir('/configs');
 $smarty->assign('page', $page);
 $smarty->assign('title', $title);
 $smarty->assign('user_role', $user_role);
+
 // Afficher la navbar
 $smarty->display('../Views/header.tpl');
 ?>
@@ -24,6 +25,7 @@ $smarty->display('../Views/header.tpl');
         <?= $contenu ?>
     </div>
 <?php
-    $smarty->display('../Views/footer.tpl');
+// Afficher le footer
+$smarty->display('../Views/footer.tpl');
 ?>
 

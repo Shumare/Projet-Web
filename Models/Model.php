@@ -9,6 +9,7 @@ class Model extends Db
     protected $table;
     protected  $currentPage;
     private  $db;
+    protected $cookie_key;
     
     public function findAll()
     {
@@ -145,5 +146,19 @@ public function delete(int $id){
         }
     }
 
-    
+	/**
+	 * @return mixed
+	 */
+	public function getCookie_key() {
+		return $this->cookie_key;
+	}
+	
+	/**
+	 * @param mixed $cookie_key 
+	 * @return self
+	 */
+	public function setCookie_key(): self {
+		$this->cookie_key = 'dgrqrg65z4ef684zeef62a';
+		return $this;
+	}
 }

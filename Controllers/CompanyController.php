@@ -13,6 +13,8 @@ class CompanyController extends Controller
         // on va chercher toutes les annonces
         $company=$companyModel->pagination(0);
 
+        $_SESSION['current_page'] = 'company';
+        $_SESSION['page_title'] = 'Company';
         //on genere la vue 
         $this->rendu(array("company/index"), ['company' =>$company]);
     }

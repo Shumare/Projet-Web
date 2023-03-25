@@ -36,5 +36,14 @@ use Website\Models\PeopleModel;
   require_once ROOT.'/Autoloader.php';
   Autoloader::register();
 
+  session_start();
+  //$userModel = new Website\Models\UserModel;
+  //$userModel->checkConnection();
+
   $website = new Main();
-  $website->start();
+  if ($website->checklogin() == true) {
+    $website->start();
+  }elseif ($website->checklogin() == false) {
+    $website->startlogin();
+  }
+  
