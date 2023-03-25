@@ -18,7 +18,7 @@ $smarty->assign('page', $page);
 $smarty->assign('title', $title);
 $smarty->assign('user_role', $user_role);
 // Afficher la navbar
-$smarty->display('../Views/header.tpl');
+$smarty->display("../Views/header.tpl");
 ?>
     <div class="container">
         <?= $contenu ?>

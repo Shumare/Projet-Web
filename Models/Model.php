@@ -42,7 +42,7 @@ class Model extends Db
         };
         $parPage=5;
         $premier = ($currentPage * $parPage) - $parPage;
-        echo "premier".$premier;
+        //echo "premier".$premier;
         if($premier<0){
             $premier=0;
         }
@@ -50,8 +50,8 @@ class Model extends Db
         $result=$sql->fetch();
         $nbArticles =(int) $result->nb_articles;
         $page = ceil($nbArticles/$parPage);
-        echo  " le $nbArticles ";
-        echo $page;
+       // echo  " le $nbArticles ";
+        //echo $page;
         $query = $this->requete("SELECT * FROM $this->table LIMIT $premier, $parPage");
         return $query->fetchAll();
     }
