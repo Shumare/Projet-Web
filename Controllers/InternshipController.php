@@ -48,7 +48,7 @@ class InternshipController extends Controller
         $internshipModel->setInter_activity($_POST['inter_activity']);
         $internshipModel->setInter_salary($_POST['inter_salary']);
         $internshipModel->setIntern_description($_POST['intern_description']);
-        $internshipModel->setInter_number_place($_POST['intern_number_place']);
+        $internshipModel->setInter_number_place($_POST['inter_number_place']);
         $internshipModel->setId_company($_POST['id_company']);
         $internshipModel->setId_date($_POST['id_date']);
         $internship =$internshipModel->create($internshipModel);
@@ -73,7 +73,7 @@ class InternshipController extends Controller
         $internshipModel->setInter_activity($_POST['inter_activity']);
         $internshipModel->setInter_salary($_POST['inter_salary']);
         $internshipModel->setIntern_description($_POST['intern_description']);
-        $internshipModel->setInter_number_place($_POST['intern_number_place']);
+        $internshipModel->setInter_number_place($_POST['inter_number_place']);
         $internshipModel->setId_company($_POST['id_company']);
         $internshipModel->setId_date($_POST['id_date']);
         $internship =$internshipModel->update($_POST['id'], $internshipModel);

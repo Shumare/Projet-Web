@@ -104,7 +104,7 @@ class internshipfilterController extends Controller
         }
     
         //$query = $query."inter_activity='".$_SESSION["Domain"]."' ";
-        echo $query;
+        //echo $query;
         $internshipfilter=$internshipfilterModel->paginationfilter(1,$query);
        
         //on genere la vue 
@@ -150,7 +150,7 @@ class internshipfilterController extends Controller
         }
     
         //$query = $query."inter_activity='".$_SESSION["Domain"]."' ";
-        echo $query;
+        //echo $query;
         $internshipfilter=$internshipfilterModel->paginationfilter(-1,$query);
        
         //on genere la vue 
