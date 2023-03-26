@@ -1,3 +1,6 @@
+ajouté le dossier ssl-mib.plejeune.fr a C:\xampp\apache\conf
+
+C:\xampp\apache\conf\extra\httpd-vhosts.conf
 the vhost config :
 ________________
 # Use name-based virtual hosting.
@@ -184,6 +187,7 @@ ________________
 </VirtualHost>
 ___________________
 
+C:\Windows\System32\drivers\etc\hosts
 the host file config (add the line at the bottom): 
 _______________
 
