@@ -87,10 +87,4 @@ abstract class Controller
             //$this->start();
         }
     }
-
-    public function islogin()
-    {
-        $usermodel = new UserModel;
-        return $usermodel->checklogin();
-    }
 }

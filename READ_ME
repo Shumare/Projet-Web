@@ -1,0 +1,191 @@
+the vhost config :
+________________
+# Use name-based virtual hosting.
+#
+##NameVirtualHost *:80
+#
+# VirtualHost example:
+# Almost any Apache directive may go into a VirtualHost container.
+# The first VirtualHost section is used for all requests that do not
+# match a ##ServerName or ##ServerAlias in any <VirtualHost> block.
+#
+##<VirtualHost *:80>
+    ##ServerAdmin webmaster@dummy-host.example.com
+    ##DocumentRoot "C:/xampp/htdocs/dummy-host.example.com"
+    ##ServerName dummy-host.example.com
+    ##ServerAlias www.dummy-host.example.com
+    ##ErrorLog "logs/dummy-host.example.com-error.log"
+    ##CustomLog "logs/dummy-host.example.com-access.log" common
+##</VirtualHost>
+
+##<VirtualHost *:80>
+    ##ServerAdmin webmaster@dummy-host2.example.com
+    ##DocumentRoot "C:/xampp/htdocs/dummy-host2.example.com"
+    ##ServerName dummy-host2.example.com
+    ##ErrorLog "logs/dummy-host2.example.com-error.log"
+    ##CustomLog "logs/dummy-host2.example.com-access.log" common
+##</VirtualHost>
+#<VirtualHost *:80>
+ #DocumentRoot "C:\Users\pierr\OneDrive - Association Cesi Viacesi mail\Pro\Prépa année 2\ViteMonStage-main"
+ #ServerName www.vitemonstage.com
+ #ServerAlias *.vitemonstage.com
+ #<Directory "F:/xampp/htdocs/mysite">
+
+ #</Directory>
+#</VirtualHost>
+
+#<VirtualHost *:443>
+ #DocumentRoot "C:\Users\pierr\OneDrive - Association Cesi Viacesi mail\Pro\Prépa année 2\ViteMonStage-main"
+ #"ServerName www.vitemonstage.com
+ #ServerAlias *.vitemonstage.com
+ #SSLEngine on
+ #SSLCertificateFile "crt/www.vitemonstage.com/server.crt"
+ #SSLCertificateKeyFile "crt/www.vitemonstage.com/server.key"
+ #<Directory "F:/xampp/htdocs/mysite">
+
+ #</Directory>
+#</VirtualHost>
+
+# <Directory C:/Users/pierr/Documents/GitHub/>
+#     AllowOverride All
+#     Require all granted
+# </Directory>
+
+# #this is the default address of XAMPP    
+# # <VirtualHost *:80>
+# #     DocumentRoot "C:/XAMPP/htdocs/"
+# #     ServerName localhost
+# # </VirtualHost>
+
+# #this is the first vhost address in XAMPP
+# <VirtualHost *:80>
+#     DocumentRoot C:/Users/pierr/Documents/GitHub/Projet-Web/Public/
+#     ServerName mib.localhost
+#     ServerAdmin admin@mib.localhost
+#     <Directory "C:/Users/pierr/Documents/GitHub/Projet-Web/">
+#         Options Indexes FollowSymLinks
+#         AllowOverride All
+#         Require all granted
+#     </Directory>
+#     #ErrorLog ${APACHE_LOG_DIR}/error.log
+#     #CustomLog ${APACHE_LOG_DIR}/access.log combined
+#     #SetEnv NS_ENV variable_value
+# </VirtualHost>
+
+# <VirtualHost *:80>
+#     ServerName mib.plejeune.fr
+#     #Redirect permanent / https://mib.plejeune.fr/
+
+#     # Database configuration
+#     # DBDriver mysql
+#     # DBDParams "host=90.70.95.253 dbname=website user=Grp6 password=Pass.GR6"
+
+#     # Authentication configuration
+#     # AuthType Basic
+#     # AuthName "Restricted Area"
+#     # AuthDBDUserPWQuery "SELECT password FROM users WHERE username = %s"
+#     # Require valid-user
+
+#     # Document root and directory configuration
+#     DocumentRoot C:/Users/pierr/Documents/GitHub/Projet-Web/Public
+#     <Directory C:/Users/pierr/Documents/GitHub/Projet-Web/Public>
+#         Options FollowSymLinks
+#         AllowOverride All
+#         Require all granted
+#     </Directory>
+
+#     # Error logging and access logging configuration
+#     #ErrorLog /var/log/httpd/mib.plejeune.fr_error.log
+#     #CustomLog /var/log/httpd/mib.plejeune.fr_access.log combined
+# </VirtualHost>
+
+# <VirtualHost *:443>
+#     ServerName mib.plejeune.fr
+
+#     # SSL/TLS configuration
+#     SSLEngine on
+#     SSLCertificateFile /path/to/cert.pem
+#     SSLCertificateKeyFile /path/to/key.pem
+#     SSLCertificateChainFile /path/to/chain.pem
+
+#     # Database configuration
+#     DBDriver mysql
+#     DBDParams "host=localhost dbname=mydatabase user=myuser password=mypassword"
+
+#     # Authentication configuration
+#     AuthType Basic
+#     AuthName "Restricted Area"
+#     AuthDBDUserPWQuery "SELECT password FROM users WHERE username = %s"
+#     Require valid-user
+
+#     # Document root and directory configuration
+#     DocumentRoot /var/www/mib.plejeune.fr/public_html
+#     <Directory /var/www/mib.plejeune.fr/public_html>
+#         Options FollowSymLinks
+#         AllowOverride All
+#         Require all granted
+#     </Directory>
+
+#     # Error logging and access logging configuration
+#     ErrorLog /var/log/httpd/mib.plejeune.fr_error.log
+#     CustomLog /var/log/httpd/mib.plejeune.fr_access.log combined
+# </VirtualHost>
+
+
+<VirtualHost *:80>
+    ServerName mib.plejeune.fr
+    ServerAlias mib.plejeune.fr mib.localhost
+
+    Redirect permanent / https://mib.plejeune.fr/user/index
+
+    # Document root and directory configuration
+    DocumentRoot C:/Users/pierr/Documents/GitHub/Projet-Web/Public
+    <Directory C:/Users/pierr/Documents/GitHub/Projet-Web/Public>
+        Options FollowSymLinks
+        AllowOverride None
+        Require all granted
+
+        # on démarre le moteur de réecriture 
+        RewriteEngine On
+        RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ https://index.php?p=$1 [QSA,L]
+    </Directory>
+
+    # #Error logging and access logging configuration
+    # ErrorLog C:/Users/pierr/Documents/GitHub/Projet-Web/Logs/mib.plejeune.fr_error.log
+    # CustomLog C:/Users/pierr/Documents/GitHub/Projet-Web/Logs/mib.plejeune.fr_access.log combined
+
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerName mib.plejeune.fr/
+    ServerAlias mib.plejeune.fr/ mib.localhost
+
+    SSLEngine On
+    SSLCertificateFile "/xampp/apache/conf/ssl-mib.plejeune.fr/mib.plejeune.fr.crt"
+    #SSLCertificateChainFile "/etc/apache2/ssl/ca_bundle.crt"
+    SSLCertificateKeyFile "/xampp/apache/conf/ssl-mib.plejeune.fr/mib.plejeune.fr.pem"
+
+    # Document root and directory configuration
+    DocumentRoot C:/Users/pierr/Documents/GitHub/Projet-Web/Public
+    <Directory C:/Users/pierr/Documents/GitHub/Projet-Web/Public>
+        Options FollowSymLinks
+        AllowOverride None
+        Require all granted
+
+        # on démarre le moteur de réecriture 
+        RewriteEngine On
+        RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1 [QSA,L]
+    </Directory>
+
+    #Error logging and access logging configuration
+    ErrorLog C:/Users/pierr/Documents/GitHub/Projet-Web/Logs/mib.plejeune.fr_error.log
+    CustomLog C:/Users/pierr/Documents/GitHub/Projet-Web/Logs/mib.plejeune.fr_access.log combined
+
+</VirtualHost>
+___________________
+
+the host file config (add the line at the bottom): 
+_______________
+
+127.0.0.1 mib.plejeune.fr
+_______________
