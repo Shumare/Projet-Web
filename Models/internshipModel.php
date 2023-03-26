@@ -10,6 +10,7 @@ class InternshipModel extends Model
     protected $inter_number_place;
     protected $id_company;
     protected $id_date;
+    protected $inter_duration;
     
 
     public function __construct()
@@ -157,6 +158,26 @@ class InternshipModel extends Model
     public function setId_date($id_date)
     {
         $this->id_date = $id_date;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of inter_duration
+     */ 
+    public function getInter_duration()
+    {
+        return $this->inter_duration;
+    }
+
+    /**
+     * Set the value of inter_duration
+     *
+     * @return  self
+     */ 
+    public function setInter_duration($inter_duration)
+    {
+        $this->inter_duration = $inter_duration;
 
         return $this;
     }

@@ -9,7 +9,6 @@ abstract class Controller
     {
         //on extrait les données 
         extract($data);
-
         //on demarre le buffer de sortie
         ob_start();
 
@@ -24,6 +23,7 @@ abstract class Controller
         // On stocke le contenu dans $content
         $contenu = ob_get_clean();
 
+       
         // On fabrique le "template"
         require_once ROOT . '/Views/init.php';
     }
