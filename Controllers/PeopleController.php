@@ -32,4 +32,39 @@ class PeopleController extends Controller
         //on envoie à la vue 
         $this->rendu(array('people/read','center/read'), array_merge(compact('center'),compact('people')));
     }
+
+    public function create(){
+        $peopleModel= new PeopleModel;
+        $peopleModel->setPeople_firstname($_POST['people_firstname']);
+        $peopleModel->setPeople_lastname($_POST['people_lastname']);
+        $peopleModel->setPeople_gender($_POST['people_gender']);
+        $peopleModel->setId_center($_POST['id_center']);
+        $people =$peopleModel->create($peopleModel);
+        $people= $peopleModel->findAll();
+        $this->rendu(array('people/index'), compact('people'));
+    }
+
+    public function dirige(){
+        $peopleModel= new PeopleModel;
+        $people =$peopleModel->find(3);
+        $this->rendu(array('people/dirige'), compact('people'));
+    }
+    public function delete( int $id){
+        $peopleModel= new PeopleModel;
+        $people =$peopleModel->delete($id);
+        $people= $peopleModel->findAll();
+        $this->rendu(array('people/index'), compact('people'));
+    }
+    public function update()
+    {
+        $peopleModel= new PeopleModel;
+        $id=$peopleModel->setId($_POST['id']);
+        $peopleModel->setPeople_firstname($_POST['people_firstname']);
+        $peopleModel->setPeople_lastname($_POST['people_lastname']);
+        $peopleModel->setPeople_gender($_POST['people_gender']);
+        $peopleModel->setId_center($_POST['id_center']);
+        $people =$peopleModel->update($_POST['id'], $peopleModel);
+        $people= $peopleModel->findAll();
+        $this->rendu(array('people/index'), compact('people'));
+    }
 }

@@ -16,6 +16,7 @@ class Db extends PDO
     private const DBNAME = 'website';
     private $connection;
 
+
     private function  __construct()
     {
         $_dsn ='mysql:dbname='.self::DBNAME.';host=' .self::DBHOST;
