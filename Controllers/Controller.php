@@ -88,17 +88,9 @@ abstract class Controller
         }
     }
 
-    public function checklogin()
+    public function islogin()
     {
-        //on verifie si l'utilisateur est connecté
-        if (!isset($_COOKIE['login_cookie']) || !isset($_SESSION['login_cookie'])) {
-            //l'utilisateur n'est pas connecté
-            //on le redirige vers la page de connexion
-            // header('Location: /user/login');
-            // exit;
-            return false;
-        } elseif (isset($_COOKIE['login_cookie']) == isset($_SESSION['login_cookie'])) {
-            return true;
-        }
+        $usermodel = new UserModel;
+        return $usermodel->checklogin();
     }
 }

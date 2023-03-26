@@ -43,7 +43,7 @@ class UserModel extends Model
             $encrypted_cookie_data = openssl_encrypt($cookie_data, 'aes-256-cbc', $this->cookie_key, OPENSSL_RAW_DATA);
             $cookie_value = base64_encode($encrypted_cookie_data);
             $cookie_expiration = time() + (24 * 60 * 60); // Durée de validité du cookie : 1 jours
-            setcookie('login_cookie', $cookie_value, $cookie_expiration, '/', '', true, true); // Stockage du cookie chiffré
+            setcookie('login_cookie', $cookie_value, $cookie_expiration, '/', '', false, true); // Stockage du cookie chiffré
             $_SESSION['login_cookie'] = $cookie_value;
 
             // Connexion réussie
@@ -58,7 +58,7 @@ class UserModel extends Model
         unset($_SESSION['session_id']);
         unset($_SESSION['user_type']);
         // Suppression du cookie de connexion
-        setcookie('login_cookie', '', time() - 3600, '/', '', true, true); // Durée de validité négative pour supprimer le cookie
+        setcookie('login_cookie', '', time() - 3600, '/', '', false, true); // Durée de validité négative pour supprimer le cookie
         session_destroy();
         // Déconnexion réussie
         return true;
@@ -72,33 +72,20 @@ class UserModel extends Model
             return false;
         }
     }
-
-//   public function checkConnection()
-//   {          
-//       if(!isset($_SESSION['login_cookie'])){
-//           // L'utilisateur n'a pas de cookie de connexion : redirection vers la page de connexion
-//           header('Location: /user/index');
-//           exit;
-//           }
-
-//           // Déchiffrement du cookie de connexion
-//           $encrypted_cookie_data = base64_decode($_COOKIE['login_cookie']);
-//           $cookie_data = openssl_decrypt($encrypted_cookie_data, 'aes-256-cbc', $this->cookie_key, OPENSSL_RAW_DATA);
-//           list($username, $session_id) = explode('|', $cookie_data);
-
-//           // Vérification que l'identifiant de session correspond à celui stocké dans la session PHP
-//           if ($session_id !== $_SESSION['session_id']) {
-//               // L'identifiant de session ne correspond pas : déconnexion et redirection vers la page de connexion
-//               $this->logout();
-//               header('Location: /user/login');
-//               exit;
-//           }
-
-//           // Vérification que l'utilisateur a les privilèges requis pour accéder à la page
-//           if (isset($_SESSION['user_type'])) {
-//               // L'utilisateur n'a pas les privilèges requis : redirection vers la page d'accueil
-//               header('Location: /');
-//               exit;
-//           }
-//   }
+    public function checklogin()
+    {
+        if (isset($_SESSION['login_cookie']) && isset($_COOKIE['login_cookie'])) {
+            if ($_COOKIE['login_cookie'] == $_SESSION['login_cookie']) {
+                return true;
+            } else {
+                $this->logout();
+                return false;
+            }
+        } elseif(isset($_SESSION['login_cookie'])) {
+            $this->logout();
+            return false;
+        }else{
+            return false;
+        }
+    }
 }
