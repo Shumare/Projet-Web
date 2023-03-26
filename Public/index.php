@@ -41,9 +41,10 @@ use Website\Models\PeopleModel;
   //$userModel->checkConnection();
 
   $website = new MainController();
-  if ($website->checklogin() == true) {
+  $user = new Website\Models\UserModel;
+  if ($user->checklogin() == true) {
     $website->start();
-  }elseif ($website->checklogin() == false) {
+  }elseif ($user->checklogin() == false) {
     $website->startlogin();
   }
   
