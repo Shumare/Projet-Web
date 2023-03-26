@@ -29,8 +29,15 @@
                     <li class="nav-item">
                         <a class="nav-link {if $page == 'company'}active" aria-current="page{/if}" href="/company">Companies</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {if $page == 'profile'}active" aria-current="page{/if}" href="#">My Profile</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" href="#"
+                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            My Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/User/Myprofile">My Profile</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="/User/logout">Logout</a></li>
+                        </ul>
                     </li>
                     {if $user_role == 'admin' || $user_role == 'tutor'}
                     <li class="nav-item dropdown">

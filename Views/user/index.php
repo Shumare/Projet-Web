@@ -24,10 +24,6 @@
               <button type="submit" class="btn btn-primary">Connection</button>
             </div>
           </form>
-          <form action="/User/logout" method="post">
-            <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-primary">déconnection</button>
-            </div>
         </div>
       </div>
     </div>
