@@ -46,9 +46,9 @@
                             Admin Panel
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="people">Users</a></li>
-                            <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="company">Companies</a></li>
-                            <li><a class="dropdown-item {if $page == 'admin_internships'}active" aria-current="page{/if}" href="internship">Internships</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/people">Users</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="/company">Companies</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_internships'}active" aria-current="page{/if}" href="/internship">Internships</a></li>
                         </ul>
                     </li>
                     {/if}
