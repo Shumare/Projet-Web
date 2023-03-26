@@ -1,3 +1,4 @@
+
 <pre>
         <h2><?= $wishlist->id_student ?></h2>
         <div class="update_form">update

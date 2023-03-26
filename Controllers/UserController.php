@@ -31,7 +31,6 @@ class UserController extends Controller
     {
         $user = new UserModel();
         $user->logout();
-        unset($_SESSION['user_type']);
         header('Location: /user');
         exit();
     }
