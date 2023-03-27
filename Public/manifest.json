@@ -6,12 +6,6 @@
             "type":"image/png",
             "sizes":"512x512",
             "purpose": "any maskable"
-        },
-        {
-            "src":"192.png",
-            "type":"image/png",
-            "sizes":"192x192",
-            "purpose": "any maskable"
         }
     ],
     "start_url":"https://mib.plejeune.fr/",

@@ -1,4 +1,4 @@
-const PREFIX = "V1";
+const PREFIX = "V2";
 
 
 const CACHED_FILES = []
