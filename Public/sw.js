@@ -1,4 +1,4 @@
-const PREFIX = "V3";
+const PREFIX = "V2";
 
 
 const CACHED_FILES = []
@@ -9,7 +9,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         (async () => {
             const cache = await caches.open(PREFIX);
-            cache.add(new Request("https://mib.plejeune.fr/offline.html"));
+            cache.add(new Request("offline.html"));
 
         })()
     );
@@ -21,8 +21,11 @@ self.addEventListener('activate', (event) => {
     clients.claim();//Pour que le sw prenne la main direct au chargement de la page 
     event.waitUntil((async () => {
         const keys = await caches.keys();
+        console.log(keys);
+        
         await Promise.all(keys.map((key) => {
             if (!key.includes(PREFIX)) {
+                console.log(key.includes(PREFIX));
                 return caches.delete(key)
             }
         }));

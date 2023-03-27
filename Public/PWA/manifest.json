@@ -14,7 +14,7 @@
             "purpose": "any maskable"
         }
     ],
-    "start_url":"https://mib.plejeune.fr/index.php",
+    "start_url":"https://mib.plejeune.fr/",
     "display":"standalone",
     "theme_color": "red",
     "background_color": "red"
