@@ -79,7 +79,7 @@ class MainController extends Controller
     {
         $internshipModel= new Intership_DateModel;
         $internship= $internshipModel->findrecent();
-        //var_dump($internship);
+        var_dump($internship);
         $this->rendu(array('main/index'),compact('internship'));
     }
 }
