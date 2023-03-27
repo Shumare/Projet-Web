@@ -25,7 +25,6 @@
             </a>
             <span class="mb-3 mb-md-0 text-muted">© 2023 Company, Inc</span>
         </div>
-
         <ul class="nav col-md-4 justify-content-center list-unstyled d-flex">
             <li class="nav-item">
                 <a href="/about/" class="nav-link px-2 text-muted">About</a>
@@ -39,8 +38,6 @@
                 <a href="/FAQ/" class="nav-link px-2 text-muted">FAQ</a>
             </li>
         </ul>
-
-
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3"><a class="text-muted" href="https://twitter.com/" aria-label="twitter"><svg class="bi" width="24" height="24">
                         <use xlink:href="#twitter"></use>

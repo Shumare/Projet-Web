@@ -23,8 +23,8 @@
                     <h5 class="card-title"><a href="/company/read/<?= $company->id ?>"><?= $company->comp_name ?></a></h5>
                     <p class="card-text">Chez <?=$company->comp_name?>, 
                     nous oeuvrons dans le domaine de <?=$company->comp_activity?> afin de <?=$company->comp_description?> avec nos <?= $company->comp_number_employees?>
-                    seront ravi de vous informer pour plus amples informations au <?= $company->comp_phone_number?>. Actuellement nous avons <?=$company->comp_current_intern?> 
-                    dans l'ensemble de nos filiales qui se comptent aux nombres de <?= $company->comp_active?>.Note du tuteur est de <?=$company->comp_tutor_rating?>/5</p>
+                    seront ravi de vous informer pour plus amples informations au <?= $company->comp_phone_number?>. <br> Actuellement nous avons <?=$company->comp_current_intern?> 
+                    dans l'ensemble de nos filiales qui se comptent aux nombres de <?= $company->comp_active?>. <br> La note du tuteur est de <?=$company->comp_tutor_rating?>/5</p>
                 </div>
 
             </div>

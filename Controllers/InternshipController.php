@@ -13,12 +13,15 @@ class InternshipController extends Controller
         $internshipModel= new InternshipModel;
         // on va chercher toutes les annonces 
         $internship= $internshipModel->findAll();
-        
+        $internship=$internshipModel->pagination(0);
         //on genere la vue 
         $_SESSION['current_page'] = 'internships';
         $_SESSION['page_title'] = 'Internship';
         $this->rendu(array('internship/index'), ['internship' =>$internship]);
     }
+    
+
+
     //afficher people
     public function read(int $id)
     {
@@ -80,4 +83,32 @@ class InternshipController extends Controller
         $internship= $internshipModel->findAll();
         $this->rendu(array('internship/index'), compact('internship'));
     }
+
+    public function next()
+    {
+        //on instacie le model coresspondant à la table people
+        $internshipModel= new internshipModel;
+        // on va chercher toutes les annonces
+        
+        $internship=$internshipModel->pagination(1);
+        
+        
+        //on genere la vue 
+        $this->rendu(array("internship/index"), ['internship' =>$internship]);
+    }
+
+    public function previous()
+    {
+        //on instacie le model coresspondant à la table people
+        $internshipModel= new internshipModel;
+        // on va chercher toutes les annonces
+        
+        $internship=$internshipModel->pagination(-1);
+        
+        
+        //on genere la vue 
+        $this->rendu(array("internship/index"), ['internship' =>$internship]);
+    }
+
+   
 }

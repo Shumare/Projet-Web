@@ -18,7 +18,7 @@ class UserController extends Controller
             $password = md5($_POST['password']);
             $user = new UserModel();
             if ($user->login($username, $password)) {
-                header('Location: /');
+                header('Location: /main/recent');
                 exit();
             } else {
                 $error = "Nom d'utilisateur ou mot de passe incorrect.";
