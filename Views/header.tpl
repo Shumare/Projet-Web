@@ -30,25 +30,23 @@
                         <a class="nav-link {if $page == 'company'}active" aria-current="page{/if}" href="/company">Companies</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" href="#"
-                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             My Profile
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/User/Myprofile">My Profile</a></li>
                             <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="/User/logout">Logout</a></li>
                         </ul>
                     </li>
                     {if $user_role == 'admin' || $user_role == 'tutor'}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" href="#"
-                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin Panel
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="people">Users</a></li>
-                            <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="company">Companies</a></li>
-                            <li><a class="dropdown-item {if $page == 'admin_internships'}active" aria-current="page{/if}" href="internship">Internships</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                            <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/people">Users</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="/company">Companies</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_internships'}active" aria-current="page{/if}" href="/internship">Internships</a></li>
                         </ul>
                     </li>
                     {/if}

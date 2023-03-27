@@ -2,6 +2,8 @@
 namespace Website\Controllers;
 
 use Website\Models\AccountModel;
+use Website\Models\PeopleModel;
+use Website\Models\Model;
 
 class AccountController extends Controller
 {
@@ -31,13 +33,31 @@ class AccountController extends Controller
 
     public function create(){
         $accountModel= new AccountModel;
+        $peopleMopdel= new PeopleModel;
+        if(MD5($_POST['acc_password']) == MD5($_POST['acc_password_confirm']))
+        {
+            $accountModel->setAcc_password(MD5($_POST['acc_password']));
+        }
+        else
+        {
+            echo "Les mots de passe ne correspondent pas";
+            $this->rendu(array('/account/dirige'),['']);
+            exit();
+        }
+        $peopleMopdel->setPeople_firstname($_POST['people_firstname']);
+        $peopleMopdel->setPeople_lastname($_POST['people_lastname']);
+        $peopleMopdel->setPeople_gender($_POST['people_gender']);
+        $peopleMopdel->setId_center($_POST['id_center']);
+        $peopleMopdel->create($peopleMopdel);
+        $id_people = $peopleMopdel->getlastid();
+        extract($id_people);
+        $id_p = $id_people[0]->id;
+        $accountModel->setId_people($id_p);
         $accountModel->setAcc_email($_POST['acc_email']);
-        $accountModel->setAcc_password($_POST['acc_password']);
-        $accountModel->setId_people($_POST['id_people']);
-        $accountModel->setId_role($_POST['id_role']);
-        $account =$accountModel->create($accountModel);
+        $account = $accountModel->setId_role($_POST['id_role']);
+        $account = $accountModel->create($accountModel);
         $account = $accountModel->findAll();
-        $this->rendu(array('account/create'), compact('account'));
+        $this->rendu(array('/people/index'), [""]);
     }
 
     public function dirige(){

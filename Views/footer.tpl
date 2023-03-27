@@ -17,42 +17,43 @@
 </symbol>
 </svg>
 
-<footer class="container">
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <dt>MIB</dt>
-        </a>
-        <span class="mb-3 mb-md-0 text-muted">© 2023 Company, Inc</span>
-    </div>
+<div container>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <b>MIB</b>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">© 2023 Company, Inc</span>
+        </div>
 
-    <div class="nav col-md-4 justify-content-center list-unstyled d-flex">
-        <li class="nav-item">
-            <a href="" class="nav-link px-2 text-muted">About</a>
-        </li>
-        <span>_</span>
-        <li class="nav-item">
-            <a href="" class="nav-link px-2 text-muted">Private Policy</a>
-        </li>
-        <span>_</span>
-        <li class="nav-item">
-            <a href="" class="nav-link px-2 text-muted">FAQ</a>
-        </li>
-    </div>
+        <ul class="nav col-md-4 justify-content-center list-unstyled d-flex">
+            <li class="nav-item">
+                <a href="/about/" class="nav-link px-2 text-muted">About</a>
+            </li>
+            <li>_</li>
+            <li class="nav-item">
+                <a href="/private_policy/" class="nav-link px-2 text-muted">Private Policy</a>
+            </li>
+            <li>_</li>
+            <li class="nav-item">
+                <a href="/FAQ/" class="nav-link px-2 text-muted">FAQ</a>
+            </li>
+        </ul>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                    <use xlink:href="#twitter"></use>
-                </svg></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                    <use xlink:href="#instagram"></use>
-                </svg></a></li>
-        <li class="ms-3"><a class="text-muted"  href="#"><svg class="bi" width="24" height="24">
-                    <use xlink:href="#facebook"></use>
-                </svg></a></li>
-    </ul>
-</footer>
-</footer>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="https://twitter.com/" aria-label="twitter"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#twitter"></use>
+                    </svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/" aria-label="instagram"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#instagram"></use>
+                    </svg></a></li>
+            <li class="ms-3"><a class="text-muted"  href="https://www.facebook.com/" aria-label="facebook"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#facebook"></use>
+                    </svg></a></li>
+        </ul>
+    </footer>
+</div>
 {/if}
 <script src="/media/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
