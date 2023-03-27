@@ -13,7 +13,7 @@
 {if $user_role != ''}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/main/index">MIB</a>
+            <a class="navbar-brand" href="/main/recent">MIB</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {if $page == 'home'}active" aria-current="page{/if}" href="/main/index">Home</a>
+                        <a class="nav-link {if $page == 'home'}active" aria-current="page{/if}" href="/main/recent">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {if $page == 'internships'}active" aria-current="page{/if}" href="/internship">Internships</a>
@@ -30,25 +30,25 @@
                         <a class="nav-link {if $page == 'company'}active" aria-current="page{/if}" href="/company">Companies</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" href="#"
-                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             My Profile
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/User/Myprofile">My Profile</a></li>
                             <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="/User/logout">Logout</a></li>
                         </ul>
                     </li>
                     {if $user_role == 'admin' || $user_role == 'tutor'}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" href="#"
-                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin Panel
                         </a>
+
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/people">Users</a></li>
                             <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="/company">Companies</a></li>
                             <li><a class="dropdown-item {if $page == 'admin_internships'}active" aria-current="page{/if}" href="/internship">Internships</a></li>
+
                         </ul>
                     </li>
                     {/if}

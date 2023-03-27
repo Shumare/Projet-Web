@@ -4,6 +4,7 @@ namespace Website\Controllers;
 //use Website\Models\UserModel;
 
 
+use Website\Models\Intership_DateModel;
 
 class MainController extends Controller
 {
@@ -73,5 +74,12 @@ class MainController extends Controller
             header('Location: /user/index');
             //$this->start();
         }
+    }
+    public function recent()
+    {
+        $internshipModel= new Intership_DateModel;
+        $internship= $internshipModel->findrecent();
+        //var_dump($internship);
+        $this->rendu(array('main/index'),compact('internship'));
     }
 }
