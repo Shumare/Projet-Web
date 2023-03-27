@@ -9,7 +9,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         (async () => {
             const cache = await caches.open(PREFIX);
-            cache.add(new Request("/offline.html"));
+            cache.add(new Request("https://mib.plejeune.fr/offline.html"));
 
         })()
     );
