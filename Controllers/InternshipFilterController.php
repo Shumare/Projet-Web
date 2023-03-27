@@ -59,7 +59,7 @@ class internshipfilterController extends Controller
         }
     
         //$query = $query."inter_activity='".$_POST["Domain"]."' ";
-        echo $query;
+        //echo $query;
         $internshipfilter=$internshipfilterModel->paginationfilter(0,$query);
        
         //on genere la vue 

@@ -1,6 +1,11 @@
 
+<h1> Recheche des internships </h1>
+
+<!--<a href="/internshipfilter/dirige">creation</a> --> 
+
 <?php if(!isset($_SESSION["location"])){
     $_SESSION["location"]="";
+    echo "ce que je veux";
 }
 if(!isset($_SESSION["PublicationDate"])){
     $_SESSION["PublicationDate"]="";
@@ -15,24 +20,34 @@ if(!isset($_SESSION["Duration"])){
     $_SESSION["Duration"]="";
 }
 ?>
-<form action="/internshipfilter/index2" method="POST">
-    <input type="text" name="location" value="<?= $_SESSION["location"]?>">
-    <p>Location</p>
-    <input type="text" name="PublicationDate" value="<?= $_SESSION["PublicationDate"]?>">
-    <p>Publication date</p>
-    <input type="text" name="Domain" value="<?= $_SESSION["Domain"]?>">
-    <p>Domain</p>
-    <input type="text" name="StartDate" value="<?= $_SESSION["StartDate"]?>">
-    <p>start date</p>
-    <input type="text" name="Duration" value="<?= $_SESSION["Duration"]?>">
-    <p>duration</p>
-    <button type="submit">Submit</button>
 
-    
+<form class="row g-3" action="/internshipfilter/index2" method="POST">
+<div class="col-12">
+                <label for="id" class="form-label">Location: </label>
+                <input type="text" class="form-control" name="location" value="<?= $_SESSION["location"]?>">
+        </div>
+        <div class="col-md-6">
+                <label for="firstname" class="form-label">Publication Date: </label>
+                <input type="text" class="form-control" name="PublicationDate" value="<?= $_SESSION["PublicationDate"]?>">
+        </div>
+        <div class="col-md-6">
+                <label for="lstname" class="form-label">Domain: </label>
+                <input type="text" class="form-control" name="Domain" value="<?= $_SESSION["Domain"]?>">
+        </div>
+        <div class="col-12">
+                <label for="gender" class="form-label">Start Date: </label>
+                <input type="text" class="form-control" name="StartDate" value="<?= $_SESSION["StartDate"]?>">
+        </div>
+        <div class="col-12">
+                <label for="center" class="form-label">Duration: </label>
+                <input type="text" class="form-control" name="Duration" value="<?= $_SESSION["Duration"]?>">
+        </div>
+        <div class="col-12">
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+        </div>
 </form>
-<h1> page d'acceuil des filtre internship </h1>
 
-<a href="/company/dirige">creation</a> 
+
 
     <pre>
     <?php foreach($internshipfilter as $internshipfilter): ?>

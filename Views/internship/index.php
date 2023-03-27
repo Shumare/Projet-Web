@@ -8,7 +8,13 @@
     <title>Document</title>
     <h1>Offers</h1>
 
-
+    
+    <a class="icon-link icon-link-hover" href="/internshipfilter/index">
+        recherche
+        <svg class="bi" aria-hidden="true">
+            <use xlink:href="#arrow-right"></use>
+        </svg>
+    </a>
     <a class="icon-link icon-link-hover" href="/internship/dirige">
         create internship
         <svg class="bi" aria-hidden="true">
@@ -28,6 +34,9 @@
             </div>
         </div>
     <?php endforeach; ?>
+
+    <a href="/internship/previous">Précedent</a>
+    <a href="/internship/next">Suivant</a>
 </body>
 
 </html>
