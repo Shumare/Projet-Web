@@ -1,12 +1,13 @@
+<!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#4285f4" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="cyan" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="/manifest.json">
-    <title>Hors ligne</title>
+    <title>Document</title>
     <script>
        window.addEventListener("load", () => {
             if ("serviceWorker" in navigator) {
@@ -17,11 +18,6 @@
 
     
 </head>
-
-
-  <body>
-    <h1>Vous êtes en mode hors ligne</h1>
-    <p>Pour retrouver le site et ses fonctionnalitées, veuillez vous reconnecter.</p>
-  </body>
-
-</html>
+<body>
+    <h1>Service serviceWorker</h1>
+</body>

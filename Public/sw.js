@@ -1,4 +1,4 @@
-const PREFIX = "V2";
+const PREFIX = "V1";
 
 
 const CACHED_FILES = []
@@ -9,7 +9,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         (async () => {
             const cache = await caches.open(PREFIX);
-            cache.add(new Request("offline.html"));
+            cache.add(new Request("/offline.html"));
 
         })()
     );
