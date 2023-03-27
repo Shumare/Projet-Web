@@ -1,0 +1,16 @@
+{
+    "name":"PWA",
+    "icons":[
+        {
+            "src":"512.png",
+            "type":"image/png",
+            "sizes":"512x512",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url":"https://mib.plejeune.fr/",
+    "display":"standalone",
+    "theme_color": "red",
+    "background_color": "red"
+    
+}
