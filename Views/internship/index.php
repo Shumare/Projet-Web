@@ -9,7 +9,7 @@
     <h1>Offers</h1>
 
     
-    <a class="icon-link icon-link-hover" href="/internshipfilter/index">
+    <a class="icon-link icon-link-hover" href="/internshipfilter/index2">
         recherche
         <svg class="bi" aria-hidden="true">
             <use xlink:href="#arrow-right"></use>

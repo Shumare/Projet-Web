@@ -5,7 +5,6 @@
 
 <?php if(!isset($_SESSION["location"])){
     $_SESSION["location"]="";
-    echo "ce que je veux";
 }
 if(!isset($_SESSION["PublicationDate"])){
     $_SESSION["PublicationDate"]="";
@@ -55,12 +54,12 @@ if(!isset($_SESSION["Duration"])){
     <a href="/internship/read/<?=$internshipfilter->id?>"><?=$internshipfilter->comp_name?></a></h2>
     <?=$internshipfilter->city_name?>
     <?=$internshipfilter->intern_description?>
-    <?=$internshipfilter->add_number.$internshipfilter->add_typeway.$internshipfilter->add_name?>
-    <?=$internshipfilter->dates?>
+    <?=$internshipfilter->add_number." ".$internshipfilter->add_typeway." ".$internshipfilter->add_name?>
+    <?="Publication ".$internshipfilter->inter_publication_date?>
     <?=$internshipfilter->city_name?>  
     <?=$internshipfilter->comp_activity?>
     <?=$internshipfilter->comp_phone_number?>  
-    <?=$internshipfilter->inter_duration?>  
+    <?="Durée ".$internshipfilter->inter_duration?>  
     <?php endforeach; ?>
     
     <a href="/internshipfilter/next">Suivant</a>
