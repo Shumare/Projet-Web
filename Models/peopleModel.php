@@ -9,6 +9,8 @@ class PeopleModel extends Model
     protected $people_lastname;
     protected $people_gender;
     protected $id_center;
+    protected $db;
+
 
 
 
@@ -19,11 +21,13 @@ class PeopleModel extends Model
         //$this-> table = 'people';
         $class = str_replace(__NAMESPACE__.'\\','',__CLASS__);
         $this->table=strtolower(str_replace('Model','',$class));
+        $this->db = Db::getInstance()->getConnection();
     }
 
     
     public function getId()
     {
+
         return $this->id;
     }
 
@@ -89,5 +93,11 @@ class PeopleModel extends Model
         $this->id_center = $id_center;
 
         return $this;
+    }
+
+    public function getlastid()
+    {
+        $query = $this->requete("SELECT * FROM people order by id desc limit 1");  
+        return $query->fetchAll();
     }
 }

@@ -13,8 +13,6 @@ class CenterModel extends Model
         $class = str_replace(__NAMESPACE__.'\\','',__CLASS__);
         $this->table=strtolower(str_replace('Model','',$class));
     }
-
-
    
     public function getId()
     {
@@ -41,5 +39,10 @@ class CenterModel extends Model
         $this->center_name = $center_name;
 
         return $this;
+    }
+
+    public function getAllCenters()
+    {
+        return $this->findAll(); 
     }
 }
