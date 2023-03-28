@@ -34,7 +34,7 @@
                             My Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/User/Myprofile">My Profile</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/profile/index">My Profile</a></li>
                             <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="/User/logout">Logout</a></li>
                         </ul>
                     </li>

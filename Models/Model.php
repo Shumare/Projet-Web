@@ -223,4 +223,16 @@ public function delete(int $id){
   
         return $query->fetchAll();
     }
+    public function findprofile(int $id)
+    {
+        if($_SESSION['user_role']=="tutor"||'admin'){
+            $query = $this->requete("SELECT * FROM ((people  join tutor on tutor.id_people = people.id) join center on center.id = people.id_center)join promotion on promotion.id_tutor = tutor.id where id_people = $id");
+        }
+       if($_SESSION['user_role']=='student')
+        $query = $this->requete("SELECT * FROM ((people join center on center.id = people.id_center) join student on student.id_people = people.id)join promotion on promotion.id = student.id_promotion  where id_people = $id");
+       
+  
+        return $query->fetchAll()[0];
+    }
+
 }
