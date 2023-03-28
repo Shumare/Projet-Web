@@ -32,3 +32,6 @@ progressbar
 <a href="/candidate/delete/<?= $candidate->id_intership ?>">supprimer la candidature de <?= $candidate->people_firstname ?></a>
     <?php endforeach; ?>
     </pre>
+
+    <a href="/candidate/previous">Précedent</a>
+        <a href="/candidate/next">Suivant</a>

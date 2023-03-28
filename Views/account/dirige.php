@@ -36,7 +36,7 @@ $centers = $center->getAllCenters();
     </div>
     <div class="col-md-6">
     <label for="acc_email">email: </label>
-    <input type="text" class="form-control" name="acc_email" required>
+    <input type="email" class="form-control" name="acc_email" required>
     </div>
     <div class="col-md-6">
     <label for="people_firstname">role: </label>

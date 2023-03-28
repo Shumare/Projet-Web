@@ -22,23 +22,23 @@
         </div>
         <div class="col-md-6">
                 <label for="lstname" class="form-label">Salary: </label>
-                <input type="text" class="form-control" name="inter_salary" value="<?= $internship->inter_salary ?>">
+                <input type="number" class="form-control" name="inter_salary" value="<?= $internship->inter_salary ?>">
         </div>
         <div class="col-12">
-                <label for="gender" class="form-label">Descriotion: </label>
+                <label for="gender" class="form-label">Description: </label>
                 <input type="text" class="form-control" name="intern_description" value="<?= $internship->intern_description ?>">
         </div>
         <div class="col-12">
                 <label for="center" class="form-label">Number of current intern: </label>
-                <input type="text" class="form-control" name="inter_number_place" value="<?= $internship->inter_number_place ?>">
+                <input type="number" class="form-control" name="inter_number_place" value="<?= $internship->inter_number_place ?>">
         </div>
         <div class="col-12">
                 <label for="center" class="form-label">company: </label>
-                <input type="text" class="form-control" name="id_company" value="<?= $internship->id_company ?>">
+                <input type="number" class="form-control" name="id_company" value="<?= $internship->id_company ?>">
         </div>
         <div class="col-12">
                 <label for="center" class="form-label">date: </label>
-                <input type="text" class="form-control" name="id_date" value="<?= $internship->id_date ?>">
+                <input type="number" class="form-control" name="id_date" value="<?= $internship->id_date ?>">
         </div>
 
         <div class="col-12">

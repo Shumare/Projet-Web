@@ -31,7 +31,7 @@
             </li>
             <li>_</li>
             <li class="nav-item">
-                <a href="/private_policy/" class="nav-link px-2 text-muted">Private Policy</a>
+                <a href= "/" class="nav-link px-2 text-muted">Private Policy</a>
             </li>
             <li>_</li>
             <li class="nav-item">
