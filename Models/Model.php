@@ -305,5 +305,57 @@ public function delete(int $id){
         // inter_activity='$query'
         return $query->fetchAll();
     }
+    public function findprofile(int $id)
+    {
+        if($_SESSION['user_role']=="tutor"||'admin'){
+            $query = $this->requete("SELECT * FROM ((people  join tutor on tutor.id_people = people.id) join center on center.id = people.id_center)join promotion on promotion.id_tutor = tutor.id where id_people = $id");
+        }
+       if($_SESSION['user_role']=='student')
+        $query = $this->requete("SELECT * FROM ((people join center on center.id = people.id_center) join student on student.id_people = people.id)join promotion on promotion.id = student.id_promotion  where id_people = $id");
+       
+  
+        return $query->fetchAll()[0];
+    }
+
+    public function paginationfilterwish(int $pageAct,int $idpeop)
+    {
+
+        if(!isset($_COOKIE["currentPage"])){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else if($_COOKIE["currentPage"]<0 ){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else{
+            setcookie("currentPage",$_COOKIE["currentPage"]+$pageAct);
+            $currentPage=$_COOKIE['currentPage']+$pageAct;
+        };
+
+        $parPage=5;
+        $premier = ($currentPage * $parPage) - $parPage;
+        //echo "premier".$premier;
+        if($premier<0){
+            $premier=0;
+        }
+
+        $sql = $this->requete("SELECT COUNT(*) AS nb_articles FROM $this->table");
+        $result=$sql->fetch();
+        $nbArticles =(int) $result->nb_articles;
+        $page = ceil($nbArticles/$parPage);
+        //echo  " le $nbArticles ";
+        //echo $page;
+        //$query = $this->requete("SELECT * FROM $this->table where $string LIMIT $premier, $parPage");
+        
+        if($idpeop == ""){
+            $query = $this->requete("SELECT * FROM  ((((((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date)join stocked on stocked.id_intership=internship.id)join wishlist on wishlist.id=stocked.id_wishlist) join student on student.id=wishlist.id_student  LIMIT $premier, $parPage");
+        }else{
+            //echo "bbbbbbbbbbb";
+            //echo $string;
+            $query = $this->requete("SELECT * FROM  ((((((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date)join stocked on stocked.id_intership=internship.id)join wishlist on wishlist.id=stocked.id_wishlist) join student on student.id=wishlist.id_student where id_people=$idpeop LIMIT $premier, $parPage");
+        }
+        
+        // inter_activity='$query'
+        return $query->fetchAll();
+    }
 
 }

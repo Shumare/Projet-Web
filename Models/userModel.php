@@ -21,6 +21,7 @@ class UserModel extends Model
         $stmt->execute([$acc_email, $acc_password]);
         $user = $stmt->fetch();
         if ($user != null) {
+            $_SESSION['acc_email'] = $user['acc_email'];
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['user_role'] = $user['user_role'];
