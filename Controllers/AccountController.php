@@ -56,8 +56,8 @@ class AccountController extends Controller
         $accountModel->setAcc_email($_POST['acc_email']);
         $account = $accountModel->setId_role($_POST['id_role']);
         $account = $accountModel->create($accountModel);
-        $account = $accountModel->findAll();
-        $this->rendu(array('/people/index'), [""]);
+        $people = $peopleMopdel->findAll();
+        $this->rendu(array('people/index'), compact('people'));
     }
 
     public function dirige(){
@@ -67,17 +67,24 @@ class AccountController extends Controller
     }
     public function delete( int $id){
         $accountModel= new accountModel;
-        $account =$accountModel->delete($id);
-        $account= $accountModel->findAll();
-        $this->rendu(array('account/index'), compact('account'));
+        $accountModel->deleteaccount($id);
+        header('Location: /people');
+        //$accountModel->findAll();
+        //$this->rendu(array("people/delete/$id"), compact('account'));
     }
     public function update()
     {
-        $accountModel = new accountModel;
+        $accountModel= new AccountModel;
+        $peopleMopdel= new PeopleModel;
+        $peopleMopdel->setPeople_firstname($_POST['people_firstname']);
+        $peopleMopdel->setPeople_lastname($_POST['people_lastname']);
+        $peopleMopdel->setPeople_gender($_POST['people_gender']);
+        $peopleMopdel->setId_center($_POST['id_center']);
+        $peopleMopdel->create($peopleMopdel);
+
         $accountModel->setAcc_email($_POST['acc_email']);
         $accountModel->setAcc_password($_POST['acc_password']);
         $accountModel->setId_people($_POST['id_people']);
-        $accountModel->setId_role($_POST['id_role']);
         $account = $accountModel->update($_POST['id'], $accountModel);
         $account = $accountModel->findAll();
         $this->rendu(array('account/index'), compact('account'));

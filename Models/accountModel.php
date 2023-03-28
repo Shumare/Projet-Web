@@ -1,5 +1,7 @@
 <?php
 namespace Website\Models;
+use Website\Models\Db;
+
 
 class AccountModel extends Model
 {
@@ -60,9 +62,14 @@ class AccountModel extends Model
     /**
      * Get the value of acc_email
      */ 
-    public function getAcc_email()
+    public function getAcc_email_From_Id(int $id)
     {
-        return $this->acc_email;
+        $this->db = Db::getInstance();
+        $query = $this->db->prepare("SELECT acc_email FROM account WHERE id_people = ?");
+        $query->execute([$id]);
+        $result = $query->fetch();
+        return $result->acc_email;
+            
     }
 
     /**
@@ -115,5 +122,10 @@ class AccountModel extends Model
         $this->id_role = $id_role;
 
         return $this;
+    }
+    public function deleteaccount(int $id)
+    {
+        $this->requete("CALL supprimer_utilisateur(?);", [$id]);
+        header('Location: /people');
     }
 }

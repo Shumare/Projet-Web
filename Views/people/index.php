@@ -8,7 +8,7 @@
 </head>
 <body>
 <head>
- <a class="icon-link icon-link-hover" href="/people/dirige">
+ <a class="icon-link icon-link-hover" href="/account/dirige">
   create people
   <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
 </a>

@@ -1,6 +1,7 @@
 <?php
 namespace Website\Controllers;
 
+use Website\Models\AccountModel;
 use Website\Models\PeopleModel;
 use Website\Models\CenterModel;
 class PeopleController extends Controller
@@ -30,7 +31,7 @@ class PeopleController extends Controller
         //on va chercher un people par rapport a son id 
         $center =$centerModel->find($people->id_center);
         //on envoie à la vue 
-        $this->rendu(array('people/read','center/read'), array_merge(compact('center'),compact('people')));
+        $this->rendu(array('people/read'), array_merge(compact('people')));
     }
 
     public function create(){
@@ -41,7 +42,10 @@ class PeopleController extends Controller
         $peopleModel->setId_center($_POST['id_center']);
         $people =$peopleModel->create($peopleModel);
         $people= $peopleModel->findAll();
-        $this->rendu(array('people/index'), compact('people'));
+        $_SESSION['current_page'] = 'admin_users';
+        $_SESSION['page_title'] = 'User_managment';
+        header('Location: people/');
+        //$this->rendu(array('people/index'), compact('people'));
     }
 
     public function dirige(){
@@ -50,10 +54,10 @@ class PeopleController extends Controller
         $this->rendu(array('people/dirige'), compact('people'));
     }
     public function delete( int $id){
-        $peopleModel= new PeopleModel;
-        $people =$peopleModel->delete($id);
-        $people= $peopleModel->findAll();
-        $this->rendu(array('people/index'), compact('people'));
+        $accountModel = new AccountModel;
+        $accountModel->deleteaccount($id);
+        header('Location: /people');
+        //$this->rendu(array('people/index'), compact('people'));
     }
     public function update()
     {
@@ -65,6 +69,6 @@ class PeopleController extends Controller
         $peopleModel->setId_center($_POST['id_center']);
         $people =$peopleModel->update($_POST['id'], $peopleModel);
         $people= $peopleModel->findAll();
-        $this->rendu(array('people/index'), compact('people'));
+        $this->rendu(array('people/'), compact('people'));
     }
 }

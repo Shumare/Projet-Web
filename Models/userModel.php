@@ -13,15 +13,7 @@ class UserModel extends Model
         //$this->table=strtolower(str_replace('Model','',$class));
         $this->db = Db::getInstance()->getConnection();
     }
-
-    public function register($username, $password)
-    {
-        $hashed_password = md5($password);
-        $query = "INSERT INTO users (username, password) VALUES (?, ?)";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute([$username, $hashed_password]);
-    }
-
+    
     public function login($acc_email, $acc_password)
     {
         $query = "SELECT account.acc_email, account.acc_password, role.role AS user_role FROM account INNER JOIN role ON account.id_role = role.id WHERE acc_email = ? && acc_password = ?;";

@@ -40,7 +40,7 @@
                     </li>
                     {if $user_role == 'admin' || $user_role == 'tutor'}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel' || "admin_internships" || "admin_companies" || "admin_users"}active{/if}" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin Panel
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="adminDropdown">
