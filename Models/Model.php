@@ -223,6 +223,48 @@ public function delete(int $id){
   
         return $query->fetchAll();
     }
+
+    public function paginationfilterpeople(int $pageAct,string $string)
+    {
+
+        if(!isset($_COOKIE["currentPage"])){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else if($_COOKIE["currentPage"]<0 ){
+            setcookie("currentPage",0);
+            $currentPage=1;
+        }else{
+            setcookie("currentPage",$_COOKIE["currentPage"]+$pageAct);
+            $currentPage=$_COOKIE['currentPage']+$pageAct;
+        };
+
+        $parPage=5;
+        $premier = ($currentPage * $parPage) - $parPage;
+        //echo "premier".$premier;
+        if($premier<0){
+            $premier=0;
+        }
+
+        $sql = $this->requete("SELECT COUNT(*) AS nb_articles FROM $this->table");
+        $result=$sql->fetch();
+        $nbArticles =(int) $result->nb_articles;
+        $page = ceil($nbArticles/$parPage);
+        //echo  " le $nbArticles ";
+        //echo $page;
+        //$query = $this->requete("SELECT * FROM $this->table where $string LIMIT $premier, $parPage");
+        
+        if($string == ""){
+            $query = $this->requete("SELECT * FROM  (people join account on people.id = account.id_people) join role on account.id_role = role.id LIMIT $premier, $parPage");
+        }else{
+            //echo "bbbbbbbbbbb";
+            //echo $string;
+            $query = $this->requete("SELECT * FROM  (people join account on people.id = account.id_people) join role on account.id_role = role.id where $string LIMIT $premier, $parPage");
+        }
+        
+        // inter_activity='$query'
+        return $query->fetchAll();
+    }
+
     public function findprofile(int $id)
     {
         if($_SESSION['user_role']=="tutor"||'admin'){
@@ -235,119 +277,6 @@ public function delete(int $id){
         return $query->fetchAll()[0];
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     public function paginationfilterwish(int $pageAct,int $idpeop)
     {
 
