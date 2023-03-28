@@ -22,6 +22,23 @@ class internshipfilterController extends Controller
         //on instacie le model coresspondant à la table people
         $internshipfilterModel= new InternshipModel;
         // on va chercher toutes les annonces
+        if(!isset($_POST['location'])){
+            $_POST['location']="";
+        }
+        if(!isset($_POST['PublicationDate'])){
+            $_POST['PublicationDate']="";
+        }
+        if(!isset($_POST['Domain'])){
+            $_POST['Domain']="";
+        }
+        if(!isset($_POST['StartDate'])){
+            $_POST['StartDate']="";
+        }
+        if(!isset($_POST['Duration'])){
+            $_POST['Duration']="";
+        }
+
+
         $_SESSION["location"]=$_POST['location'];
         $_SESSION["PublicationDate"]=$_POST['PublicationDate'];
         $_SESSION["Domain"]=$_POST['Domain'];
@@ -37,7 +54,7 @@ class internshipfilterController extends Controller
             }
         }
         if($_POST["PublicationDate"]!=""){
-            $query = $query."dates='".$_POST["PublicationDate"]."' ";
+            $query = $query."inter_publication_date='".$_POST["PublicationDate"]."' ";
             if($_POST["Domain"] ||$_POST["StartDate"] ||$_POST["Duration"]){
                 $query = $query." AND " ;
             }
@@ -49,7 +66,7 @@ class internshipfilterController extends Controller
             }
         }
         if($_POST["StartDate"]!=""){
-            $query = $query."dates='".$_POST["StartDate"]."' ";
+            $query = $query."inter_start_date='".$_POST["StartDate"]."' ";
             if($_POST["Duration"]){
                 $query = $query." AND " ;
             }
@@ -57,8 +74,6 @@ class internshipfilterController extends Controller
         if($_POST["Duration"]!=""){
             $query = $query."inter_duration='".$_POST["Duration"]."' ";
         }
-    
-        //$query = $query."inter_activity='".$_POST["Domain"]."' ";
         //echo $query;
         $internshipfilter=$internshipfilterModel->paginationfilter(0,$query);
        
@@ -82,7 +97,7 @@ class internshipfilterController extends Controller
             }
         }
         if($_SESSION["PublicationDate"]!=""){
-            $query = $query."dates='".$_SESSION["PublicationDate"]."' ";
+            $query = $query."inter_publication_date='".$_SESSION["PublicationDate"]."' ";
             if($_SESSION["Domain"] ||$_SESSION["StartDate"] ||$_SESSION["Duration"]){
                 $query = $query." AND " ;
             }
@@ -94,7 +109,7 @@ class internshipfilterController extends Controller
             }
         }
         if($_SESSION["StartDate"]!=""){
-            $query = $query."dates='".$_SESSION["StartDate"]."' ";
+            $query = $query."inter_start_date='".$_SESSION["StartDate"]."' ";
             if($_SESSION["Duration"]){
                 $query = $query." AND " ;
             }
@@ -128,7 +143,7 @@ class internshipfilterController extends Controller
             }
         }
         if($_SESSION["PublicationDate"]!=""){
-            $query = $query."dates='".$_SESSION["PublicationDate"]."' ";
+            $query = $query."inter_publication_date='".$_SESSION["PublicationDate"]."' ";
             if($_SESSION["Domain"] ||$_SESSION["StartDate"] ||$_SESSION["Duration"]){
                 $query = $query." AND " ;
             }
@@ -140,7 +155,7 @@ class internshipfilterController extends Controller
             }
         }
         if($_SESSION["StartDate"]!=""){
-            $query = $query."dates='".$_SESSION["StartDate"]."' ";
+            $query = $query."inter_start_date='".$_SESSION["StartDate"]."' ";
             if($_SESSION["Duration"]){
                 $query = $query." AND " ;
             }
@@ -149,7 +164,6 @@ class internshipfilterController extends Controller
             $query = $query."inter_duration='".$_SESSION["Duration"]."' ";
         }
     
-        //$query = $query."inter_activity='".$_SESSION["Domain"]."' ";
         //echo $query;
         $internshipfilter=$internshipfilterModel->paginationfilter(-1,$query);
        
