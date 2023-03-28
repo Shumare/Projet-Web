@@ -9,6 +9,12 @@
 <body>
 <h1> Les entreprises </h1>
 
+<a href="/companyfilter/index2">Rechercher company
+    <svg class="bi" aria-hidden="true">
+        <use xlink:href="#arrow-right"></use>
+    </svg>
+</a>
+
 <a href="/company/dirige">create companies
     <svg class="bi" aria-hidden="true">
         <use xlink:href="#arrow-right"></use>
