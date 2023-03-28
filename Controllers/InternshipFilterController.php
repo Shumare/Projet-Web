@@ -183,4 +183,14 @@ class internshipfilterController extends Controller
          $this->rendu(array('internshipfilter/read'), compact('internshipfilter'));
      }
 
+     public function createwish(int $id )
+     {
+         // on instancie le model
+         $internshipfilterModel= new InternshipModel;
+ 
+         //on va chercher un people par rapport a son id 
+         $internshipfilter =$internshipfilterModel->find($id);
+         //on envoie à la vue 
+         $this->rendu(array('internshipfilter/read'), compact('internshipfilter'));
+     }
 }
