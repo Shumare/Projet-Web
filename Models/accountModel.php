@@ -107,9 +107,10 @@ class AccountModel extends Model
     /**
      * Get the value of id_role
      */ 
-    public function getId_role()
+    public function getId_role($id)
     {
-        return $this->id_role;
+        $query = $this->requete("SELECT id_role FROM account WHERE id_people = ?", [$id]);
+        return $query->fetchAll();
     }
 
     /**
@@ -127,5 +128,10 @@ class AccountModel extends Model
     {
         $this->requete("CALL supprimer_utilisateur(?);", [$id]);
         header('Location: /people');
+    }
+    public function GetIdaccountfromidpeople(int $id)
+    {
+        $query = $this->requete("SELECT id FROM account where id_people='$id'");
+        return $query->fetchAll();
     }
 }
