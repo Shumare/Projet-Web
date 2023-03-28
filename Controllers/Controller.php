@@ -9,6 +9,7 @@ abstract class Controller
     {
         //on extrait les données 
         extract($data);
+ 
         //var_dump($data);
         //on demarre le buffer de sortie
         ob_start();

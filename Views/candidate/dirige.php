@@ -1,10 +1,10 @@
 <form action="/candidate/create" method="POST">
     <label for="">Id_internship</label>
-    <input type="text" name="id_intership">
+    <input type="number" name="id_intership" required>
     <label for="">id_student</label>
-    <input type="text" name="id_student">
+    <input type="number" name="id_student" required>
     <label for="">candidature step</label>
-    <input type="text" name="cand_step">
+    <input type="number" name="cand_step" required>
     <input type="submit" name="" id="">
 
 </form>

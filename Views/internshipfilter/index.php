@@ -59,7 +59,7 @@ if(!isset($_SESSION["Duration"])){
     <?=$internshipfilter->city_name?>  
     <?=$internshipfilter->comp_activity?>
     <?=$internshipfilter->comp_phone_number?>  
-    <?="Durée ".$internshipfilter->inter_duration?>  
+    <?="Durée ".$internshipfilter->inter_duration ." semaines"?>  
     <?php endforeach; ?>
     
     <a href="/internshipfilter/next">Suivant</a>

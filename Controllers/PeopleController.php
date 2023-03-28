@@ -13,7 +13,7 @@ class PeopleController extends Controller
         $peopleModel= new PeopleModel;
         // on va chercher toutes les annonces 
         $people= $peopleModel->findAll();
-        
+        $people=$peopleModel->pagination(0);
         //on genere la vue 
         $this->rendu(array('people/index'), ['people' =>$people]);
     }
@@ -71,4 +71,32 @@ class PeopleController extends Controller
         $people= $peopleModel->findAll();
         $this->rendu(array('people/'), compact('people'));
     }
+
+    public function next()
+    {
+        //on instacie le model coresspondant à la table people
+        $peopleModel= new PeopleModel;
+        // on va chercher toutes les annonces
+        
+        $people=$peopleModel->pagination(1);
+        
+        
+        //on genere la vue 
+        $this->rendu(array("people/index"), ['people' =>$people]);
+    }
+
+    public function previous()
+    {
+        //on instacie le model coresspondant à la table people
+        $peopleModel= new PeopleModel;
+        // on va chercher toutes les annonces
+        
+        $people=$peopleModel->pagination(-1);
+        
+        
+        //on genere la vue 
+        $this->rendu(array("people/index"), ['people' =>$people]);
+    }
+   
+
 }
