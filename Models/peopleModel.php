@@ -27,7 +27,6 @@ class PeopleModel extends Model
     
     public function getId()
     {
-
         return $this->id;
     }
 

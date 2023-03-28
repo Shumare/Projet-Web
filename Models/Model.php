@@ -82,8 +82,8 @@ class Model extends Db
         if($string == ""){
             $query = $this->requete("SELECT * FROM  (((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date  LIMIT $premier, $parPage");
         }else{
-            //echo "bbbbbbbbbbb";
-            //echo $string;
+            echo "bbbbbbbbbbb";
+            echo $string;
             $query = $this->requete("SELECT * FROM  (((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date where $string LIMIT $premier, $parPage");
         }
         

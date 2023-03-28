@@ -10,6 +10,7 @@
 
 <body>
 
+
     <head>
     <a class="icon-link icon-link-hover" href="/peoplefilter/index2">
         recherche
@@ -37,6 +38,7 @@
                     <div class="card-footer">
                         <small class="text-body-secondary">Last updated 3 mins ago</small>
                     </div>
+
                 </div>
             </div>
         <?php endforeach; ?>
