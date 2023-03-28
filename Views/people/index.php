@@ -12,6 +12,10 @@
   create people
   <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
 </a>
+<a class="icon-link icon-link-hover" href="/candidate/candidature">
+  candidature
+  <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
+</a>
 </head>
 <div class="row row-cols-1 row-cols-md-3 g-4" >
     <?php foreach ($people as $people) : ?>

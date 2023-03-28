@@ -1,4 +1,4 @@
-
+<?= $_SESSION['username']?>
 
 <h1> page d'acceuil des Accounts </h1>
 

@@ -17,13 +17,21 @@
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam saepe repellendus dolores beatae odit tenetur debitis architecto deleniti eveniet libero labore, possimus consequuntur aspernatur incidunt recusandae eum, nobis nihil illum.
+      Bienvenue sur notre site de recherche de stage <strong>M</strong>y <strong>I</strong>nternship <strong>B</strong>ook ! <br>
+       Nous sommes une plateforme en ligne dédiée à la recherche et à la diffusion d'offres de stage pour les étudiants.
+
+Notre moteur de recherche avancé vous permet de trouver des offres de stage. 
+Nous disposons également d'une base de données d'entreprises qui proposent des stages dans divers secteurs d'activité.
+
+Connecter profil sur notre site pour y inclure votre CV et votre lettre de motivation. Les tuteurs peuvent consulter votre profil.
+
+Nous sommes là pour vous accompagner tout au long de votre recherche de stage, en vous offrant des conseils et des ressources pour vous aider à décrocher le stage de vos rêves.
+
+Rejoignez notre communauté d'étudiants dès maintenant et trouvez le stage qui vous convient sur notre site !
       </div>
     </div>
   </div>  
 </div>
-<h2></h2>
-
 
 </body>
 </html>
@@ -34,7 +42,7 @@
       <div class="card-body">
           <h5 class="card-title"><?= $internship->inter_activity?></h5>
           <h5 class="card-title"><?= $internship->dates?></h5>
-          <p class="card-text">Nous sommes à la recherche d'un(e) stagiaire capble de nous accompagner durant(temps) avec un salaire moyen de <?= $internship->inter_salary ?>.</p>
+          <p class="card-text">Nous sommes à la recherche d'un(e) stagiaire capble de nous accompagner durant <?=$internship->inter_duration?> semaines avec un salaire moyen de <?= $internship->inter_salary ?>.</p>
         <a href="/internship/read/<?= $internship->id ?>" class="btn btn-primary">Go offer</a>
       </div>
     </div>

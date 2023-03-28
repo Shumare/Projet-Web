@@ -6,5 +6,7 @@
         <div><?=$candidate->cand_date ?></div>
         <div><?=$candidate->cand_motivation_letter ?></div>
         <div><?=$candidate->cand_step ?></div>
+        <div><?=$candidate->inter_activity ?></div>
         
 </pre>
+

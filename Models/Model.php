@@ -116,6 +116,11 @@ class Model extends Db
         return $this->requete("SELECT * FROM $this->table WHERE  id =$id")->fetch();
     }
 
+    public function findcandidate(int $id_intership)
+    {
+        return $this->requete("SELECT * FROM $this->table WHERE  id_intership =$id_intership")->fetch();
+    }
+
 
     public function create(Model $model)
     {
@@ -205,6 +210,15 @@ public function delete(int $id){
     {
        
         $query = $this->requete("SELECT * FROM ($this->table JOIN internship on  internship.id_date = intership_date.id) ORDER BY dates DESC");
+       
+  
+        return $query->fetchAll();
+    }
+
+    public function feedback_candidature()
+    {
+       
+        $query = $this->requete("SELECT * FROM ($this->table JOIN internship on  internship.id = candidate.id_intership JOIN student on student.id = candidate.id_student join people on people.id = student.id_people) ");
        
   
         return $query->fetchAll();

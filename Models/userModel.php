@@ -1,7 +1,7 @@
 <?php
 namespace Website\Models;
- 
 use Website\Models\Db;
+
 
 class UserModel extends Model
 {
