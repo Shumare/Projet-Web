@@ -99,4 +99,9 @@ class PeopleModel extends Model
         $query = $this->requete("SELECT * FROM people order by id desc limit 1");  
         return $query->fetchAll();
     }
+    public function GetIdpeoplefromname($name, $surename)
+    {
+        $query = $this->requete("SELECT id_people FROM account where id_people in (SELECT id FROM people where people_firstname='$name' and people_lastname='$surename')"); 
+        return $query->fetchAll();
+    }
 }

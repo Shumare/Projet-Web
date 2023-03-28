@@ -54,10 +54,10 @@ class AccountController extends Controller
         $id_p = $id_people[0]->id;
         $accountModel->setId_people($id_p);
         $accountModel->setAcc_email($_POST['acc_email']);
-        $account = $accountModel->setId_role($_POST['id_role']);
-        $account = $accountModel->create($accountModel);
-        $people = $peopleMopdel->findAll();
-        $this->rendu(array('people/index'), compact('people'));
+        $accountModel->setId_role($_POST['id_role']);
+        $accountModel->create($accountModel);
+        $peopleMopdel->findAll();
+        header('Location: /people');
     }
 
     public function dirige(){
@@ -80,13 +80,13 @@ class AccountController extends Controller
         $peopleMopdel->setPeople_lastname($_POST['people_lastname']);
         $peopleMopdel->setPeople_gender($_POST['people_gender']);
         $peopleMopdel->setId_center($_POST['id_center']);
-        $peopleMopdel->create($peopleMopdel);
-
+        $peopleId = $peopleMopdel->GetIdpeoplefromname($_POST['people_firstname'],$_POST['people_lastname']); 
+        $peopleMopdel->update($peopleId[0]->id_people,$peopleMopdel);
         $accountModel->setAcc_email($_POST['acc_email']);
-        $accountModel->setAcc_password($_POST['acc_password']);
-        $accountModel->setId_people($_POST['id_people']);
-        $account = $accountModel->update($_POST['id'], $accountModel);
-        $account = $accountModel->findAll();
-        $this->rendu(array('account/index'), compact('account'));
+        $accountModel->setId_role($_POST['id_role']);
+        $accid = $accountModel->GetIdaccountfromidpeople($peopleId[0]->id_people);
+        $accountModel->update($accid[0]->id, $accountModel);
+        header('Location: /people');
+        
     }
 }
