@@ -36,19 +36,19 @@
         </div>
         <div class="col-12">
             <label for="comp_number_employees" class="form-label">Employees: </label>
-            <input type="text" class="form-control" name="comp_number_employees" value="<?= $company->comp_number_employees ?>">
+            <input type="number" class="form-control" name="comp_number_employees" value="<?= $company->comp_number_employees ?>">
         </div>
         <div class="col-12">
             <label for="comp_tutor_rating" class="form-label">Tutor rating: </label>
-            <input type="text" class="form-control" name="comp_tutor_rating" value="<?= $company->comp_tutor_rating ?>">
+            <input type="number" class="form-control" name="comp_tutor_rating" value="<?= $company->comp_tutor_rating ?>">
         </div>
         <div class="col-12">
             <label for="comp_current_intern" class="form-label">Current intern: </label>
-            <input type="text" class="form-control" name="comp_current_intern" value="<?= $company->comp_current_intern ?>">
+            <input type="number" class="form-control" name="comp_current_intern" value="<?= $company->comp_current_intern ?>">
         </div>
         <div class="col-12">
             <label for="comp_active" class="form-label">Active: </label>
-            <input type="text" class="form-control" name="comp_active" value="<?= $company->comp_active ?>">
+            <input type="number" class="form-control" name="comp_active" value="<?= $company->comp_active ?>">
         </div>
 
         <div class="col-12">

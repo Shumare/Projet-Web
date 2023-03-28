@@ -63,4 +63,5 @@ class CandidateController extends Controller
         $candidate= $candidateModel->findAll();
         $this->rendu(array('candidate/index'), compact('candidate'));
     }
+    
 }
