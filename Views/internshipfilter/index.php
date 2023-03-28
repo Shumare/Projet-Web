@@ -60,6 +60,7 @@ if(!isset($_SESSION["Duration"])){
     <?=$internshipfilter->comp_activity?>
     <?=$internshipfilter->comp_phone_number?>  
     <?="Durée ".$internshipfilter->inter_duration?>  
+    <a href="/wishlist/test/">Add to wishlist</a></h2>
     <?php endforeach; ?>
     
     <a href="/internshipfilter/next">Suivant</a>

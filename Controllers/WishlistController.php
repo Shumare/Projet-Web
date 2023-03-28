@@ -53,4 +53,12 @@ class WishlistController extends Controller
         $wishlist= $wishlistModel->findAll();
         $this->rendu(array('wishlist/index'), compact('wishlist'));
     }
+    public function test()
+    {
+        $wishlistModel= new wishlistModel;
+        $wishlistModel->setId_student($_POST['id_student']);
+        $wishlist =$wishlistModel->update($_POST['id'], $wishlistModel);
+        $wishlist= $wishlistModel->findAll();
+        $this->rendu(array('internshipfilter/index2'), compact('wishlist'));
+    }
 }
