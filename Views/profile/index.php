@@ -7,13 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-<h1> Page de profile </h1>
+<h1> Welcome back <?= $profile->people_firstname." ".$profile->people_lastname?> </h1>
 
-<div>
-    <?= $profile->people_firstname." ".$profile->people_lastname?>
-    <?= $_SESSION['acc_email']?>
-    <?= $profile->center_name?>
-    <?= $profile->promo_name?>
+<div class="row g-3">
+  <div class="col">
+    <input type="email" class="form-control" placeholder="First name" aria-label="email" value="<?= $_SESSION['acc_email']?>">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Center" value ="<?= $profile->center_name?>">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Promo" value=" <?= $profile->promo_name?>">
+  </div>
 </div>
 </body>
 </html>
