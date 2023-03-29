@@ -57,28 +57,7 @@
   
   </div>
 
-  <div class="row">
-    <?php foreach ($internship as $internship): ?>
-      <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">
-              <?= $internship->inter_activity ?>
-            </h5>
-            <h5 class="card-title">
-              <?= $internship->dates ?>
-            </h5>
-            <p class="card-text">Nous sommes à la recherche d'un(e) stagiaire capble de nous accompagner durant
-              <?= $internship->inter_duration ?> semaines avec un salaire moyen de
-              <?= $internship->inter_salary ?> €.
-            </p>
-            <a href="/internship/read/<?= $internship->id ?>" class="btn btn-primary">Go offer</a>
-          </div>
-        </div>
-      </div>
-    <?php endforeach ?>
 
-  </div>
 
 </body>
 
