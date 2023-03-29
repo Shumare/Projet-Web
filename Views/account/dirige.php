@@ -1,4 +1,10 @@
-    <div class="text-center">
+<?php
+use Website\Models\CenterModel;
+
+$center = new CenterModel;
+$centers = $center->getAllCenters();
+?>
+<div class="text-center">
         <h1>Create a new user account</h1>
     </div>
     <form class="row g-3" action="/account/create" method="POST">
