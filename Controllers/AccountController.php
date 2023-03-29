@@ -4,6 +4,7 @@ namespace Website\Controllers;
 use Website\Models\AccountModel;
 use Website\Models\PeopleModel;
 use Website\Models\Model;
+use Website\Models\CenterModel;
 
 class AccountController extends Controller
 {
@@ -62,8 +63,10 @@ class AccountController extends Controller
 
     public function dirige(){
         $accountModel= new AccountModel;
+        $center = new CenterModel;
+        $centers = $center->getAllCenters();
         $account =$accountModel->find(3);
-        $this->rendu(array('account/dirige'), compact('account'));
+        $this->rendu(array('account/dirige'), [compact('account'), compact('centers')]);
     }
     public function delete( int $id){
         $accountModel= new accountModel;
