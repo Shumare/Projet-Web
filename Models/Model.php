@@ -347,17 +347,17 @@ public function delete(int $id){
         //$query = $this->requete("SELECT * FROM $this->table where $string LIMIT $premier, $parPage");
         
         if($idpeop == ""){
-            $query = $this->requete("SELECT * FROM  ((((((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date)join stocked on stocked.id_intership=internship.id)join wishlist on wishlist.id=stocked.id_wishlist) join student on student.id=wishlist.id_student  LIMIT $premier, $parPage");
+            $query = $this->requete("SELECT * FROM  ((((((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date)join stocked on stocked.id_intership=internship.id)join wishlist on wishlist.id=stocked.id_wishlist) LIMIT $premier, $parPage");
         }else{
             //echo "bbbbbbbbbbb";
             //echo $string;
-            $query = $this->requete("SELECT * FROM  ((((((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date)join stocked on stocked.id_intership=internship.id)join wishlist on wishlist.id=stocked.id_wishlist) join student on student.id=wishlist.id_student where id_people=$idpeop LIMIT $premier, $parPage");
+            $query = $this->requete("SELECT * FROM  (((((((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date)join stocked on stocked.id_intership=internship.id)join wishlist on wishlist.id=stocked.id_wishlist)join searchs on searchs.id_company=company.id)join people on people.id = searchs.id_people where people_id=$_SESSION[user_id] LIMIT $premier, $parPage");
         }
         
         // inter_activity='$query'
         return $query->fetchAll();
     }
 
-
+  
     
 }

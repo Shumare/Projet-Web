@@ -3,7 +3,7 @@
 namespace Website\Controllers;
 
 use Website\Models\InternshipModel;
-
+use Website\Models\WishlistModel;
 class internshipfilterController extends Controller 
 {
     public function index()
@@ -183,14 +183,17 @@ class internshipfilterController extends Controller
          $this->rendu(array('internshipfilter/read'), compact('internshipfilter'));
      }
 
-     public function createwish(int $id )
+     public function createWish(int $id )
      {
          // on instancie le model
-         $internshipfilterModel= new InternshipModel;
+         $wishlist= new WishlistModel;
  
          //on va chercher un people par rapport a son id 
-         $internshipfilter =$internshipfilterModel->find($id);
+         $wishlist->createWish($id);
          //on envoie à la vue 
-         $this->rendu(array('internshipfilter/read'), compact('internshipfilter'));
+         $internshipfilter= new InternshipModel;
+         $internshipfilter=$internshipfilter->paginationfilter(0,"");
+         $this->rendu(array('internshipfilter/index'), compact('internshipfilter'));
      }
+   
 }
