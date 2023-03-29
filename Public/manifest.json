@@ -10,7 +10,7 @@
     ],
     "start_url":"https://mib.plejeune.fr/",
     "display":"standalone",
-    "theme_color": "red",
-    "background_color": "red"
+    "theme_color": "blue",
+    "background_color": "white"
     
 }

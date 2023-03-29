@@ -21,7 +21,6 @@ self.addEventListener('activate', (event) => {
     clients.claim();//Pour que le sw prenne la main direct au chargement de la page 
     event.waitUntil((async () => {
         const keys = await caches.keys();
-        console.log(keys);
         
         await Promise.all(keys.map((key) => {
             if (!key.includes(PREFIX)) {
