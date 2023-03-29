@@ -11,16 +11,18 @@
                 <use xlink:href="#arrow-right"></use>
             </svg>
         </a>
-         
-    </head>
+
+    </header>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <?php foreach ($people as $people) : ?>
+        <?php foreach ($people as $people): ?>
             <div class="col">
                 <div class="card h-100">
                     <img src="" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title"><a href="/people/read/<?= $people->id ?>"><?= $people->people_firstname ?></a></h5>
-                        <p class="card-text">Le profile ci-dessous appartient à <?= $people->people_firstname ?> </p>
+                        <p class="card-text">Le profile ci-dessous appartient à
+                            <?= $people->people_firstname ?>
+                        </p>
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary">Last updated 3 mins ago</small>

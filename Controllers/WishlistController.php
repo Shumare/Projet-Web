@@ -28,7 +28,7 @@ class WishlistController extends Controller
     }
     public function create(){
         $wishlistModel= new wishlistModel;
-        $wishlistModel->setId_student($_POST['id_student']);
+        $wishlistModel->setId_student($_SESSION['user_id']);
         $wishlist =$wishlistModel->create($wishlistModel);
         $wishlist= $wishlistModel->findAll();
         $this->rendu(array('wishlist/index'), compact('wishlist'));
@@ -53,4 +53,6 @@ class WishlistController extends Controller
         $wishlist= $wishlistModel->findAll();
         $this->rendu(array('wishlist/index'), compact('wishlist'));
     }
+
+    
 }

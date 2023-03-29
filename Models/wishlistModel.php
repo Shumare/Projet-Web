@@ -55,4 +55,16 @@ class WishlistModel extends Model
 
         return $this;
     }
+
+    public function createWish(int $id)
+    {
+        
+        $this->requete("INSERT INTO wishlist (people_id) VALUES ($_SESSION[user_id])");
+        $wishlist = new WishlistModel();
+        $last = $wishlist->requete("SELECT * from wishlist where people_id=$_SESSION[user_id] order by people_id asc ");
+        $all = $last->fetchAll();
+        $all=$all[sizeof($all)-1];
+        $this->requete("INSERT INTO stocked (id_intership,id_wishlist) VALUES ($id,$all->id)");
+    }
+ 
 }

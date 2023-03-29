@@ -24,7 +24,7 @@
     <?php foreach ($company as $company) : ?>
         <div class="col">
             <div class="card">
-                <img src="" class="card-img-top" alt="">
+                <img class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="card-title"><a href="/company/read/<?= $company->id ?>"><?= $company->comp_name ?></a></h5>
                     <p class="card-text">Chez <?=$company->comp_name?>, 
