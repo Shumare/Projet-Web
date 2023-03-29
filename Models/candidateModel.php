@@ -3,7 +3,7 @@ namespace Website\Models;
 
 class CandidateModel extends Model
 {
-    protected $id_internship;
+    protected $id_intership;
     protected $id_student;
     protected $cand_cv;
     protected $cand_date;
@@ -22,21 +22,21 @@ class CandidateModel extends Model
 
 
     /**
-     * Get the value of id_internship
+     * Get the value of id_intership
      */ 
-    public function getId_internship()
+    public function getid_intership()
     {
-        return $this->id_internship;
+        return $this->id_intership;
     }
 
     /**
-     * Set the value of id_internship
+     * Set the value of id_intership
      *
      * @return  self
      */ 
-    public function setId_internship($id_internship)
+    public function setid_intership($id_intership)
     {
-        $this->id_internship = $id_internship;
+        $this->id_intership = $id_intership;
 
         return $this;
     }

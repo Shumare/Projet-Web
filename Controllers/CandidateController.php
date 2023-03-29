@@ -34,9 +34,12 @@ class CandidateController extends Controller
 
     public function create(){
         $candidateModel= new CandidateModel;
-        $candidateModel->setId_internship($_POST['id_intership']);
+        $candidateModel->setId_intership($_POST['id_intership']);
         $candidateModel->setId_student($_POST['id_student']);
         $candidateModel->setCand_step($_POST['cand_step']);
+        $candidateModel->setCand_cv($_POST['cand_cv']);
+        $candidateModel->setCand_date($_POST['cand_date']);
+        $candidateModel->setCand_motivation_letter($_POST['cand_motivation_letter']);
         $candidate =$candidateModel->create($candidateModel);
         $candidate= $candidateModel->findAll();
         $this->rendu(array('candidate/index'), compact('candidate'));
@@ -56,7 +59,7 @@ class CandidateController extends Controller
     public function update()
     {
         $candidateModel= new CandidateModel;
-        $candidateModel->setId_internship($_POST['id_intership']);
+        $candidateModel->setId_intership($_POST['id_intership']);
         $candidateModel->setId_student($_POST['id_student']);
         $candidateModel->setCand_step($_POST['cand_step']);
         $candidate =$candidateModel->update($_POST['id_intership'], $candidateModel);
