@@ -200,4 +200,8 @@ class CompanyModel extends Model
 
         return $this;
     }
+    public function getAllCompanies()
+    {
+        return $this->findAll(); 
+    }
 }

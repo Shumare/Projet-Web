@@ -1,6 +1,8 @@
 <?php
 namespace Website\Models;
 
+use Website\Models\Intership_DateModel;
+
 class InternshipModel extends Model
 {
     protected $id;
@@ -11,6 +13,9 @@ class InternshipModel extends Model
     protected $id_company;
     protected $id_date;
     protected $inter_duration;
+    protected $inter_publication_date;
+    protected $interCreationDate;
+    protected $interStartDate;
     
 
     public function __construct()
@@ -157,6 +162,7 @@ class InternshipModel extends Model
      */ 
     public function setId_date($id_date)
     {
+
         $this->id_date = $id_date;
 
         return $this;
@@ -180,5 +186,68 @@ class InternshipModel extends Model
         $this->inter_duration = $inter_duration;
 
         return $this;
+    }
+    
+    public function getinter_publication_date()
+    {
+        return $this->inter_publication_date;
+    }
+
+    /**
+     * Set the value of inter_duration
+     *
+     * @return  self
+     */ 
+    public function setinter_start_date($id)
+    {
+        $this->interStartDate = $id;
+
+        return $this;
+    }
+    public function setinter_publication_date()
+    {
+        $this->inter_publication_date = date_create('now')->format('Y-m-d');
+    }
+
+    public function getInterCreationDate()
+    {
+        return $this->interCreationDate;
+    }
+    //get id_date and date
+    public function getDate($id = NULL)
+    {
+        $query = $this->requete("call website.get_internship(?);",[$id]); 
+        $date = $query->fetchAll();
+        return $date;
+    }
+    public function formatDatepickerToMySql($date) {
+        if ($date != FALSE) {
+            $dateArr = explode("-", $date);
+            $newDate = $dateArr[0] . '-' . $dateArr[1] . '-' . $dateArr[2];
+            return $newDate;
+        }
+        return FALSE;
+    }
+    //get last id
+    public function getLastIdPlusOne()
+    {
+        $query = $this->requete("SELECT MAX(id) as id FROM internship;"); 
+        $id = $query->fetchAll();
+        $id = $id[0]->id + 1;
+        return $id;
+    }
+    public function getallAttributeswhitID($id)
+    {
+        $query = $this->requete("call website.Internship_From_ID($id);"); 
+        $intern = $query->fetchAll();
+        return $intern;
+        // $this->setId($id);
+        // $this->setInter_activity($this->$intern[]);
+        // $this->setInter_salary($this->getInter_salary());
+        // $this->setIntern_description($this->getIntern_description());
+        // $this->setInter_number_place($this->getInter_number_place());
+        // $this->setId_company($this->getId_company());
+        // $this->setId_date($this->getId_date());
+        // $this->setInter_duration($this->getInter_duration());
     }
 }

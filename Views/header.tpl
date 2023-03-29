@@ -2,9 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>{$title}</title>
     <link rel="stylesheet" media="all" href="/media/bootstrap/css/bootstrap.min.css" type="text/css">
 </head>
@@ -40,13 +39,13 @@
                     </li>
                     {if $user_role == 'admin' || $user_role == 'tutor'}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel' || "admin_internships" || "admin_companies" || "admin_users"}active{/if}" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {if $page == 'admin_panel'}active{/if}" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin Panel
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="adminDropdown">
                             <li><a class="dropdown-item {if $page == 'admin_users'}active" aria-current="page{/if}" href="/people">Users</a></li>
-                            <li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="/company">Companies</a></li>
-                            <li><a class="dropdown-item {if $page == 'admin_internships'}active" aria-current="page{/if}" href="/internship">Internships</a></li>
+                            <!--li><a class="dropdown-item {if $page == 'admin_companies'}active" aria-current="page{/if}" href="/company">Companies</a></li>
+                            <li><a class="dropdown-item {if $page == 'admin_internships'}active" aria-current="page{/if}" href="/internship">Internships</a></li-->
                         </ul>
                     </li>
                     {/if}
