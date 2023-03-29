@@ -11,6 +11,7 @@
 <body>
     <h1> Page de profile </h1>
 
+    
     <div>
         <?= $profile->people_firstname . " " . $profile->people_lastname ?>
         <?= $_SESSION['acc_email'] ?>
