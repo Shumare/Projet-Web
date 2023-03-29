@@ -9,6 +9,8 @@ class PeopleController extends Controller
 
     public function index()
     {
+        $_SESSION['current_page'] = 'admin_users';
+        $_SESSION['page_title'] = 'User Management';
         //on instacie le model coresspondant à la table people
         $peopleModel= new PeopleModel;
         // on va chercher toutes les annonces 

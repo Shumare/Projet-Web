@@ -12,9 +12,7 @@ class MainController extends Controller
         // verifie si l'utilisateur est connecté
         // $user = new UserModel();
         // $user->checkConnection();
-        $_SESSION['current_page'] = 'home';
-        $_SESSION['page_title'] = 'Home';
-        $this->rendu(array('main/index'));
+        $this->recent();
     }
 
     public function start()
@@ -80,6 +78,8 @@ class MainController extends Controller
         $internshipModel= new Intership_DateModel;
         $internship= $internshipModel->findrecent();
         //var_dump($internship);
+        $_SESSION['current_page'] = 'home';
+        $_SESSION['page_title'] = 'Home';
         $this->rendu(array('main/index'),compact('internship'));
     }
 }
