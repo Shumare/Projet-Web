@@ -32,7 +32,7 @@
             <a href="/about/" class="nav-link px-2 text-muted">About</a>
         </li>
         <li class="nav-item">
-            <a href="/private_policy/" class="nav-link px-2 text-muted">Private Policy</a>
+            <a href="/policy/index" class="nav-link px-2 text-muted">Private Policy</a>
         </li>
         <li class="nav-item">
             <a href="/FAQ/" class="nav-link px-2 text-muted">FAQ</a>

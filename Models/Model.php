@@ -218,7 +218,7 @@ public function delete(int $id){
     public function feedback_candidature()
     {
        
-        $query = $this->requete("SELECT * FROM ($this->table JOIN internship on  internship.id = candidate.id_intership JOIN student on student.id = candidate.id_student join people on people.id = student.id_people) ");
+        $query = $this->requete("SELECT * FROM ($this->table JOIN internship on  internship.id = candidate.id_intership JOIN student on student.id = candidate.id_student join people on people.id = student.id_people JOIN company on internship.id_company=company.id) ");
        
   
         return $query->fetchAll();
