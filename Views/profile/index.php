@@ -11,13 +11,13 @@
 
 <div class="row g-3">
   <div class="col">
-    <input type="email" class="form-control" placeholder="First name" aria-label="email" value="<?= $_SESSION['acc_email']?>">
+    <input type="email" class="form-control" placeholder="First name" aria-label="email" value="<?= $_SESSION['acc_email']?> " readonly>
   </div>
   <div class="col">
-    <input type="text" class="form-control" placeholder="Last name" aria-label="Center" value ="<?= $profile->center_name?>">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Center" value ="<?= $profile->center_name?>" readonly>
   </div>
   <div class="col">
-    <input type="text" class="form-control" placeholder="Last name" aria-label="Promo" value=" <?= $profile->promo_name?>">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Promo" value=" <?= $profile->promo_name?>" readonly>
   </div>
 </div>
 </body>

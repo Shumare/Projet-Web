@@ -1,4 +1,5 @@
 <h1> Suivi de candidate </h1>
+
 <a href="/candidate/dirige">create candidature </a>
 <pre>
     <?php foreach ($candidate as $candidate) : ?>
@@ -26,7 +27,7 @@
 
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Date de début du stage: </label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" value ="<?= $candidate->inter_start_date ?>">
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" value ="<?= $candidate->dates ?>">
 </div>
 
 <div class="mb-3">
@@ -42,7 +43,7 @@
 
 progressbar  
   <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-    <div class="progress-bar" style="width: 25%">25%</div>
+    <div class="progress-bar" style="width: <?= (($candidate->cand_step)/4)*100 ?>%">25%</div>
 </div>
 
 <a href="/candidate/delete/<?= $candidate->id_intership ?>">supprimer la candidature de <?= $candidate->people_firstname ?></a>

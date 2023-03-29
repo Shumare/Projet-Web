@@ -15,7 +15,10 @@ class ProfileController extends Controller
         //on genere la vue 
         $internshipfilterModel= new InternshipModel;
         $internshipfilter=$internshipfilterModel->paginationfilterwish(0,$_SESSION['user_id']);
-        $this->rendu(array("profile/index",'profile/wishlist'),array_merge( compact('profile'),compact('internshipfilter')));
+        
+    $this->rendu(array("profile/index",'profile/wishlist'),array_merge( compact('profile'),compact('internshipfilter')));
+        
+        
     }
     public function next()
     {
@@ -39,4 +42,6 @@ class ProfileController extends Controller
         $internshipfilter=$internshipfilterModel->paginationfilterwish(-1,$_SESSION['user_id']);
         $this->rendu(array("profile/index",'profile/wishlist'),array_merge( compact('profile'),compact('internshipfilter')));
     }
+
+    
 }
