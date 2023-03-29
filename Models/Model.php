@@ -82,8 +82,8 @@ class Model extends Db
         if($string == ""){
             $query = $this->requete("SELECT * FROM  (((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date  LIMIT $premier, $parPage");
         }else{
-            echo "bbbbbbbbbbb";
-            echo $string;
+            //echo "bbbbbbbbbbb";
+           // echo $string;
             $query = $this->requete("SELECT * FROM  (((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date where $string LIMIT $premier, $parPage");
         }
         
@@ -218,7 +218,7 @@ public function delete(int $id){
     public function feedback_candidature()
     {
        
-        $query = $this->requete("SELECT * FROM ($this->table JOIN internship on  internship.id = candidate.id_intership JOIN student on student.id = candidate.id_student join people on people.id = student.id_people) ");
+        $query = $this->requete("SELECT * FROM ($this->table JOIN internship on  internship.id = candidate.id_intership JOIN student on student.id = candidate.id_student join people on people.id = student.id_people JOIN company on internship.id_company=company.id JOIN intership_date on intership_date.id=internship.id) ");
        
   
         return $query->fetchAll();
@@ -347,11 +347,13 @@ public function delete(int $id){
         //$query = $this->requete("SELECT * FROM $this->table where $string LIMIT $premier, $parPage");
         
         if($idpeop == ""){
+
             $query = $this->requete("SELECT * FROM  ((((((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date)join stocked on stocked.id_intership=internship.id)join wishlist on wishlist.id=stocked.id_wishlist) LIMIT $premier, $parPage");
         }else{
             //echo "bbbbbbbbbbb";
             //echo $string;
             $query = $this->requete("SELECT * FROM  (((((((company join internship on company.id = internship.id_company) join address on company.id = address.id_company) join city on address.id_city = city.id)join intership_date on intership_date.id = internship.id_date)join stocked on stocked.id_intership=internship.id)join wishlist on wishlist.id=stocked.id_wishlist)join searchs on searchs.id_company=company.id)join people on people.id = searchs.id_people where people_id=$_SESSION[user_id] LIMIT $premier, $parPage");
+
         }
         
         // inter_activity='$query'
